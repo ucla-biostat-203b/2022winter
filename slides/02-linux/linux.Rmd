@@ -1,7 +1,7 @@
 ---
 title: "Linux Basics"
 author: "Dr. Hua Zhou @ UCLA"
-date: "Jan 5, 2021"
+date: "Jan 4, 2022"
 subtitle: Biostat 203B
 output:
   # ioslides_presentation: default
@@ -40,7 +40,7 @@ Linux is _the_ most common platform for scientific computing and deployment of d
   <img src="./redhat_kills_centos.png" height="200" width="300">
 </p>
 
-- The teaching server for this class runs CentOS 7. UCLA Hoffman2 cluster runs CentOS 6.10 (as of 2020-01-03).
+- The teaching server for this class runs CentOS 7. UCLA Hoffman2 cluster runs CentOS 7.9.2009 (as of 2022-01-01).
 
 - MacOS was originally derived from Unix/Linux (Darwin kernel). It is POSIX compliant. Most shell commands we review here apply to MacOS terminal as well. Windows/DOS, unfortunately, is a totally different breed.
 

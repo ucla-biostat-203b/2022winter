@@ -1,7 +1,7 @@
 ---
 title: "Lab 1: SSH, Keys, R/RStudio, and git clone on MacOS"
-author: "Chris German, Hua Zhou"
-date: "Jan 7, 2021"
+author: "Hua Zhou"
+date: "Jan 6, 2022"
 output: html_document
 ---
 
@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This tutorial is for Mac users. For Windows users, please first read the [tutorial](https://ucla-biostat203b-2021winter.github.io/labs/lab01/lab01_windows.html) to install `Git for Windows`, which ships with `Git Bash`, then most bash commands in this tutorial will work in `Git Bash`.
+This tutorial is for Mac users. For Windows users, please first read the [tutorial](https://ucla-biostat-203b/2022winter/labs/lab01/lab01_windows.html) to install `Git for Windows`, which ships with `Git Bash`, then most bash commands in this tutorial will work in `Git Bash`.
 
 # Connect from your Mac to teaching server
 
@@ -38,12 +38,12 @@ Replace `[USERNAME]` in the command by your actual user name (your email name in
 
 4. You can use git to obtain a copy of course materials:
     ```{bash, eval=F}
-    git clone https://github.com/ucla-biostat203b-2021winter/ucla-biostat203b-2021winter.github.io.git
+    git clone https://github.com/ucla-biostat-203b/2022winter.git
     ```
 
 # Install R and RStudio on your own machine. 
 
-1. Install R v3.x.x or later. <https://ftp.osuosl.org/pub/cran/> 
+1. Install R v4.1.2 or later. <https://ftp.osuosl.org/pub/cran/> 
 
 2. Install RStudio Desktop (Open Source Edition). <https://rstudio.com/products/rstudio/#Desktop> 
 
@@ -55,12 +55,12 @@ Check whether `git` command is available in Terminal. If not, follow instruction
 
 1. On whichever machine that has `git` installed, e.g., your Mac Terminal or teaching server, you can obtain the 203B course material by command
 ```{bash, eval=F}
-git clone https://github.com/ucla-biostat203b-2021winter/ucla-biostat203b-2021winter.github.io.git
+git clone https://github.com/ucla-biostat-203b/2022winter.git
 ```
 
-2. The Git repository <https://github.com/ucla-biostat203b-2021winter/ucla-biostat203b-2021winter.github.io> is frequently updated. To sync your git clone with the current repo., first enter your local repo directory
+2. The Git repository git clone https://github.com/ucla-biostat-203b/2022winter.git> is frequently updated. To sync your git clone with the current repo., first enter your local repo directory
 ```{bash, eval=F}
-cd /PATH/TO/ucla-biostat203b-2021winter.github.io
+cd /PATH/TO/ucla-biostat-203b/2022winter.git
 ```
 then 
 ```{bash, eval=F}
@@ -68,7 +68,7 @@ git pull
 ```
 If you have made changes to the local repo, then the two commits need to be merged. 
 
-3. Besides command line, we can also use RStudio to perform git clone and many other git operations. To git clone a repository, in RStudio `File` -> `New Project...` -> `Version Control` -> `Git`, then copy the **git address** (not **HTTPS** address) `git@github.com:ucla-biostat203b-2021winter/ucla-biostat203b-2021winter.github.io.git` to the `Repository URL:`. 
+3. Besides command line, we can also use RStudio to perform git clone and many other git operations. To git clone a repository, in RStudio `File` -> `New Project...` -> `Version Control` -> `Git`, then copy the **git address** (not **HTTPS** address) `git@github.com:ucla-biostat-203b/2022winter.git` to the `Repository URL:`. 
 
 # Access RStudio on the teaching server
 
@@ -83,7 +83,7 @@ ls -al ~/.ssh
 If you don't have `~/.ssh` folder, that means you have never used SSH before.
 
 2. If no SSH keys yet, generate a pair of SSH RSA keys
-    - Method 1: generate keys on MacOS Terminal or Windows Git Bash. Follow [instructions in lecture notes](https://ucla-biostat203b-2021winter.github.io/slides/02-linux/linux.html#steps-to-generate-keys).  
+    - Method 1: generate keys on MacOS Terminal or Windows Git Bash. Follow [instructions in lecture notes](https://ucla-biostat-203b.github.io/2022winter/slides/02-linux/linux.html#steps-to-generate-keys).  
     - Method 2: Use RStudio to generate keys. `Tools` -> `Global Options...` -> `Git/SVN`. 
 Using either method, make sure keys are in the default location `~/.ssh/`
 

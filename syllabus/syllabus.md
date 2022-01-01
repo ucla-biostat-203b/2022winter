@@ -27,7 +27,7 @@ Office hours: ??? @ Zoom <https://ucla.zoom.us/j/99440334928>
 
 Computing skills and software tools for handling potentially big public health data.
 
-See the [schedule](https://ucla-biostat-203b/2022winter.github.io/schedule/schedule.html) page for a tentative list of topics.
+See the [schedule](https://ucla-biostat-203b.github.io/2022winter/schedule/schedule.html) page for a tentative list of topics.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ The prerequisite for this course is _Biostat 203A: Introduction to Data Manageme
 
 ## Course Webpage
 
-[http://ucla-biostat-203b.com](http://ucla-biostat-203b.com) or [https://ucla-biostat-203b/2022winter](https://ucla-biostat-203b/2022winter)
+[http://ucla-biostat-203b.com](http://ucla-biostat-203b.com) or [https://ucla-biostat-203b.github.io/2022winter](https://ucla-biostat-203b.github.io/2022winter)
 
 ## Course Materials
 

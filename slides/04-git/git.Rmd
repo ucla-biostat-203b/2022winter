@@ -1,7 +1,7 @@
 ---
 title: "Git and GitHub"
 author: "Dr. Hua Zhou @ UCLA"
-date: "Jan 12, 2021"
+date: "Jan 11, 2022"
 output:
   # ioslides_presentation: default
   html_document:

@@ -1,7 +1,7 @@
 ---
 title: "Course Introduction"
 author: "Dr. Hua Zhou @ UCLA"
-date: "Jan 5, 2021"
+date: "Jan 4, 2022"
 output:
   # ioslides_presentation: default
   html_document:
@@ -11,9 +11,6 @@ subtitle: Biostat 203B
 bibliography: ../bib-HZ.bib
 csl: ../apa.csl
 ---
-<!-- I could not get R Markdown's citations to work as the works cited at the
-  end would not continue onto multiple slides.  If you know how to fix that, 
-  please let me know. -->
 
 ## Statistics and data science
 
@@ -56,9 +53,9 @@ Source: [IBM](http://www.ibmbigdatahub.com/infographic/four-vs-big-data).
 
 - This course introduces some computing skills and software tools for handling potentially big public health data.
 
-- Read [syllabus](https://ucla-biostat203b-2021winter.github.io/syllabus/syllabus.html) and [schedule](https://ucla-biostat203b-2021winter.github.io/schedule/schedule.html) for a tentative list of topics and course logistics.
+- Read [syllabus](https://ucla-biostat-203b.github.io/2022winter/syllabus/syllabus.html) and [schedule](https://ucla-biostat-203b.github.io/2022winter/schedule/schedule.html) for a tentative list of topics and course logistics.
 
-- Fill out a short survey at <https://www.surveymonkey.com/r/F9NL7H9>. It helps me better tailor the course to your background.
+- Fill out a short survey at <https://www.surveymonkey.com/r/9N8KVPH>. It helps me better tailor the course to your background.
 
 ## References
 
