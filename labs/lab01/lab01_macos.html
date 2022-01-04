@@ -171,7 +171,7 @@ pre code {
 </div>
 
 
-<p>This tutorial is for Mac users. For Windows users, please first read the <a href="https://ucla-biostat-203b/2022winter/labs/lab01/lab01_windows.html">tutorial</a> to install <code>Git for Windows</code>, which ships with <code>Git Bash</code>, then most bash commands in this tutorial will work in <code>Git Bash</code>.</p>
+<p>This tutorial is for Mac users. For Windows users, please first read the <a href="https://ucla-biostat-203b.github.io/2022winter/labs/lab01/lab01_windows.html">tutorial</a> to install <code>Git for Windows</code>, which ships with <code>Git Bash</code>, then most bash commands in this tutorial will work in <code>Git Bash</code>.</p>
 <div id="connect-from-your-mac-to-teaching-server" class="section level1">
 <h1>Connect from your Mac to teaching server</h1>
 <ol style="list-style-type: decimal">
@@ -198,7 +198,7 @@ pre code {
 <div id="install-r-and-rstudio-on-your-own-machine." class="section level1">
 <h1>Install R and RStudio on your own machine.</h1>
 <ol style="list-style-type: decimal">
-<li><p>Install R v4.1.2 or later. <a href="https://ftp.osuosl.org/pub/cran/" class="uri">https://ftp.osuosl.org/pub/cran/</a></p></li>
+<li><p>Install R v4.1.2 or later. <a href="https://cran.rstudio.com" class="uri">https://cran.rstudio.com</a></p></li>
 <li><p>Install RStudio Desktop (Open Source Edition). <a href="https://rstudio.com/products/rstudio/#Desktop" class="uri">https://rstudio.com/products/rstudio/#Desktop</a></p></li>
 </ol>
 </div>
@@ -211,16 +211,17 @@ pre code {
 <ol style="list-style-type: decimal">
 <li>On whichever machine that has <code>git</code> installed, e.g., your Mac Terminal or teaching server, you can obtain the 203B course material by command</li>
 </ol>
-<pre class="bash"><code>git clone https://github.com/ucla-biostat-203b/2022winter.git</code></pre>
+<pre class="bash"><code>git clone https://github.com/ucla-biostat-203b/2022winter.git [&lt;dir&gt;]</code></pre>
+<p>Replace <code>[&lt;dir&gt;]</code> by your preferred folder name, say <code>203b-2022winter</code>.</p>
 <ol start="2" style="list-style-type: decimal">
-<li>The Git repository git clone <a href="https://github.com/ucla-biostat-203b/2022winter.git" class="uri">https://github.com/ucla-biostat-203b/2022winter.git</a>&gt; is frequently updated. To sync your git clone with the current repo., first enter your local repo directory</li>
+<li>The Git repository <a href="https://github.com/ucla-biostat-203b/2022winter.git" class="uri">https://github.com/ucla-biostat-203b/2022winter.git</a> is frequently updated. To sync your git clone with the current repo., first enter your local repo directory</li>
 </ol>
-<pre class="bash"><code>cd /PATH/TO/ucla-biostat-203b/2022winter.git</code></pre>
+<pre class="bash"><code>cd /PATH/TO/LOCAL/REPO</code></pre>
 <p>then</p>
 <pre class="bash"><code>git pull</code></pre>
-<p>If you have made changes to the local repo, then the two commits need to be merged.</p>
+<p>If you have made commits to the local repo, then the two commits need to be merged.</p>
 <ol start="3" style="list-style-type: decimal">
-<li>Besides command line, we can also use RStudio to perform git clone and many other git operations. To git clone a repository, in RStudio <code>File</code> -&gt; <code>New Project...</code> -&gt; <code>Version Control</code> -&gt; <code>Git</code>, then copy the <strong>git address</strong> (not <strong>HTTPS</strong> address) <code>git@github.com:ucla-biostat-203b/2022winter.git</code> to the <code>Repository URL:</code>.</li>
+<li>Besides command line, we can also use <strong>RStudio</strong> to perform git clone and many other git operations. To git clone a repository, in RStudio <code>File</code> -&gt; <code>New Project...</code> -&gt; <code>Version Control</code> -&gt; <code>Git</code>, then copy the <strong>git address</strong> (not <strong>HTTPS</strong> address) <code>git@github.com:ucla-biostat-203b/2022winter.git</code> to the <code>Repository URL:</code>.</li>
 </ol>
 </div>
 <div id="access-rstudio-on-the-teaching-server" class="section level1">
@@ -230,7 +231,7 @@ pre code {
 <div id="ssh-keys" class="section level1">
 <h1>SSH keys</h1>
 <ol style="list-style-type: decimal">
-<li>First check whether you already have keys.</li>
+<li>First check whether you already have keys on your local machine.</li>
 </ol>
 <pre class="bash"><code>ls -al ~/.ssh</code></pre>
 <p>If you don’t have <code>~/.ssh</code> folder, that means you have never used SSH before.</p>

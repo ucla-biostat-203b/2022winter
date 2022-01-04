@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This tutorial is for Mac users. For Windows users, please first read the [tutorial](https://ucla-biostat-203b/2022winter/labs/lab01/lab01_windows.html) to install `Git for Windows`, which ships with `Git Bash`, then most bash commands in this tutorial will work in `Git Bash`.
+This tutorial is for Mac users. For Windows users, please first read the [tutorial](https://ucla-biostat-203b.github.io/2022winter/labs/lab01/lab01_windows.html) to install `Git for Windows`, which ships with `Git Bash`, then most bash commands in this tutorial will work in `Git Bash`.
 
 # Connect from your Mac to teaching server
 
@@ -43,7 +43,7 @@ Replace `[USERNAME]` in the command by your actual user name (your email name in
 
 # Install R and RStudio on your own machine. 
 
-1. Install R v4.1.2 or later. <https://ftp.osuosl.org/pub/cran/> 
+1. Install R v4.1.2 or later. <https://cran.rstudio.com>
 
 2. Install RStudio Desktop (Open Source Edition). <https://rstudio.com/products/rstudio/#Desktop> 
 
@@ -55,20 +55,21 @@ Check whether `git` command is available in Terminal. If not, follow instruction
 
 1. On whichever machine that has `git` installed, e.g., your Mac Terminal or teaching server, you can obtain the 203B course material by command
 ```{bash, eval=F}
-git clone https://github.com/ucla-biostat-203b/2022winter.git
+git clone https://github.com/ucla-biostat-203b/2022winter.git [<dir>]
 ```
+Replace `[<dir>]` by your preferred folder name, say `203b-2022winter`. 
 
-2. The Git repository git clone https://github.com/ucla-biostat-203b/2022winter.git> is frequently updated. To sync your git clone with the current repo., first enter your local repo directory
+2. The Git repository <https://github.com/ucla-biostat-203b/2022winter.git> is frequently updated. To sync your git clone with the current repo., first enter your local repo directory
 ```{bash, eval=F}
-cd /PATH/TO/ucla-biostat-203b/2022winter.git
+cd /PATH/TO/LOCAL/REPO
 ```
 then 
 ```{bash, eval=F}
 git pull
 ```
-If you have made changes to the local repo, then the two commits need to be merged. 
+If you have made commits to the local repo, then the two commits need to be merged. 
 
-3. Besides command line, we can also use RStudio to perform git clone and many other git operations. To git clone a repository, in RStudio `File` -> `New Project...` -> `Version Control` -> `Git`, then copy the **git address** (not **HTTPS** address) `git@github.com:ucla-biostat-203b/2022winter.git` to the `Repository URL:`. 
+3. Besides command line, we can also use **RStudio** to perform git clone and many other git operations. To git clone a repository, in RStudio `File` -> `New Project...` -> `Version Control` -> `Git`, then copy the **git address** (not **HTTPS** address) `git@github.com:ucla-biostat-203b/2022winter.git` to the `Repository URL:`. 
 
 # Access RStudio on the teaching server
 
@@ -76,7 +77,7 @@ Open your browser and enter address <http://server.ucla-biostat-203b.com:8787> t
 
 # SSH keys
 
-1. First check whether you already have keys.
+1. First check whether you already have keys on your local machine.
 ```{bash, eval=F}
 ls -al ~/.ssh
 ```
