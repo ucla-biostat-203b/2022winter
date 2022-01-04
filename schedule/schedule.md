@@ -15,6 +15,8 @@ CCLE site: <https://ccle.ucla.edu/course/view/22W-BIOSTAT203B-1>
 
 Slack channel: <https://ucla.slack.com/archives/C02SLT81N8L>
 
+Teaching server: <http://server.ucla-biostat-203b.com:8787>
+
 Recommended readings:  
 * _Reproducible Research with R and RStudio_ by Christopher Gandrud: [Amazon](https://www.amazon.com/Reproducible-Research-Studio-Second-Chapman/dp/1498715370/ref=dp_ob_title_bk), [GitHub repo](https://github.com/christophergandrud/Rep-Res-Book).  
 * [_Happy Git with R_](http://happygitwithr.com) by Jenny Bryan.  

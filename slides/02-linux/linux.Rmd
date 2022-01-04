@@ -15,7 +15,17 @@ bibliography: ../bib-HZ.bib
 knitr::opts_chunk$set(echo = TRUE, comment = '')
 ```
 
-This html is knitted from RMarkdown on the teaching server. 
+## Preface
+
+- This html is knitted from RMarkdown on the teaching server. 
+
+- To practice the Linux commands, we can log on the teaching server, git clone the course material, and try the Linux commands on the Terminal.   
+
+  1. Log onto the RStudio on teaching server: <http://server.ucla-biostat-203b.com:8787>  
+  
+  2. In RStudio, `File` -> `New Project...` -> `Version Control` -> `Git` -> put `https://github.com/ucla-biostat-203b/2022winter.git` to `Repository URL:` -> put `203b-2022winter` to `Project directory name:` -> choose home directory for `Create project as subdirectory of:` -> click `Create Project` button
+  
+  3. In the `Terminal` tab, navigate to the folder of current slide: `cd ~/203b-2022winter/slides/02-linux`
 
 ## Why Linux
 
@@ -589,7 +599,7 @@ Replace above `[USERNAME]` by your account user name on teaching server.
     chmod 600 ~/.ssh/[KEY_FILENAME]
     chmod 644 ~/.ssh/[KEY_FILENAME].pub
     ```
-    Note Windows is different, it doesn't allow change of permisisons.
+    Note Windows is different, it doesn't allow change of permissions.
 
 ----
 
@@ -604,7 +614,7 @@ Replace above `[USERNAME]` by your account user name on teaching server.
     ssh -i ~/.ssh/[KEY_FILENAME] [USERNAME]@server.ucla-biostat-203b.com
     ```
 
-- Now you don't need password each time you connect from your machine to the teaching server.
+- From now on, you don't need password each time you connect from your machine to the teaching server.
 
 ----
 

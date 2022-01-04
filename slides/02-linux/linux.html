@@ -173,6 +173,7 @@ pre code {
 
 <div id="TOC">
 <ul>
+<li><a href="#preface">Preface</a></li>
 <li><a href="#why-linux">Why Linux</a></li>
 <li><a href="#distributions-of-linux"><span>Distributions of Linux</span></a></li>
 <li><a href="#linux-shells">Linux shells</a>
@@ -232,7 +233,18 @@ pre code {
 </ul>
 </div>
 
-<p>This html is knitted from RMarkdown on the teaching server.</p>
+<div id="preface" class="section level2">
+<h2>Preface</h2>
+<ul>
+<li><p>This html is knitted from RMarkdown on the teaching server.</p></li>
+<li><p>To practice the Linux commands, we can log on the teaching server, git clone the course material, and try the Linux commands on the Terminal.</p>
+<ol style="list-style-type: decimal">
+<li><p>Log onto the RStudio on teaching server: <a href="http://server.ucla-biostat-203b.com:8787" class="uri">http://server.ucla-biostat-203b.com:8787</a></p></li>
+<li><p>In RStudio, <code>File</code> -&gt; <code>New Project...</code> -&gt; <code>Version Control</code> -&gt; <code>Git</code> -&gt; put <code>https://github.com/ucla-biostat-203b/2022winter.git</code> to <code>Repository URL:</code> -&gt; put <code>203b-2022winter</code> to <code>Project directory name:</code> -&gt; choose home directory for <code>Create project as subdirectory of:</code> -&gt; click <code>Create Project</code> button</p></li>
+<li><p>In the <code>Terminal</code> tab, navigate to the folder of current slide: <code>cd ~/203b-2022winter/slides/02-linux</code></p></li>
+</ol></li>
+</ul>
+</div>
 <div id="why-linux" class="section level2">
 <h2>Why Linux</h2>
 <p>Linux is <em>the</em> most common platform for scientific computing and deployment of data science tools.</p>
@@ -637,6 +649,7 @@ tree -d -L 2 /</code></pre>
 │   ├── cron.weekly
 │   ├── cups
 │   ├── dbus-1
+│   ├── dconf
 │   ├── default
 │   ├── depmod.d
 │   ├── dhcp
@@ -644,6 +657,7 @@ tree -d -L 2 /</code></pre>
 │   ├── egl
 │   ├── firewalld
 │   ├── fonts
+│   ├── gconf
 │   ├── gcrypt
 │   ├── gdbinit.d
 │   ├── ghostscript
@@ -652,6 +666,7 @@ tree -d -L 2 /</code></pre>
 │   ├── groff
 │   ├── grub.d
 │   ├── gss
+│   ├── ImageMagick-6
 │   ├── init.d -&gt; rc.d/init.d
 │   ├── iproute2
 │   ├── java
@@ -720,8 +735,51 @@ tree -d -L 2 /</code></pre>
 │   ├── yum
 │   └── yum.repos.d
 ├── home
+│   ├── aarbolante
+│   ├── blei001
+│   ├── capj245
+│   ├── djlavine
+│   ├── ehodzic
+│   ├── fangyi
+│   ├── hangsun
 │   ├── huazhou
-│   └── lost+found
+│   ├── ionahu08
+│   ├── jamshidian
+│   ├── javim013
+│   ├── jiahaotian0702
+│   ├── jonathanking192
+│   ├── jqin10
+│   ├── khyeh0816
+│   ├── lifengxue2000
+│   ├── lillyhuang25
+│   ├── lost+found
+│   ├── lsyang
+│   ├── maschepps
+│   ├── may.lyn.cheah.phd
+│   ├── mimi327
+│   ├── nataliesisto
+│   ├── naying
+│   ├── qny2021
+│   ├── qzhang42
+│   ├── rfisher2022
+│   ├── ritazxcai
+│   ├── rozeta
+│   ├── rsusene
+│   ├── seamusgallivan
+│   ├── sharonfeng
+│   ├── tokramm
+│   ├── tomokiokuno0528
+│   ├── wanghw
+│   ├── wongj1721
+│   ├── yanlongbai975
+│   ├── yifan00
+│   ├── yllai
+│   ├── younghograd
+│   ├── yueyu99
+│   ├── yuhang886688
+│   ├── yuruidong99
+│   ├── yuyuanlin
+│   └── zixiz
 ├── lib -&gt; usr/lib
 ├── lib64 -&gt; usr/lib64
 ├── media
@@ -732,49 +790,35 @@ tree -d -L 2 /</code></pre>
 ├── proc
 │   ├── 1
 │   ├── 10
-│   ├── 10283
-│   ├── 10736
-│   ├── 10767
 │   ├── 11
-│   ├── 1172
 │   ├── 12
 │   ├── 1239
-│   ├── 12558
 │   ├── 1295
 │   ├── 13
 │   ├── 1322
 │   ├── 1326
 │   ├── 133
-│   ├── 13577
-│   ├── 1363
-│   ├── 1366
-│   ├── 1367
-│   ├── 1368
 │   ├── 14
-│   ├── 14288
-│   ├── 14299
-│   ├── 14333
-│   ├── 14583
-│   ├── 14681
-│   ├── 14707
-│   ├── 14750
-│   ├── 14751
-│   ├── 15511
+│   ├── 1530
 │   ├── 16
 │   ├── 1654
 │   ├── 1655
-│   ├── 1689
 │   ├── 17
 │   ├── 18
 │   ├── 19
+│   ├── 1969
 │   ├── 199
 │   ├── 2
 │   ├── 200
 │   ├── 201
 │   ├── 21
 │   ├── 212
-│   ├── 215
+│   ├── 2160
+│   ├── 2164
+│   ├── 2165
+│   ├── 2194
 │   ├── 22
+│   ├── 2222
 │   ├── 23
 │   ├── 233
 │   ├── 24
@@ -792,27 +836,42 @@ tree -d -L 2 /</code></pre>
 │   ├── 261
 │   ├── 262
 │   ├── 263
+│   ├── 2676
+│   ├── 2799
 │   ├── 28
 │   ├── 29
+│   ├── 2936
+│   ├── 2938
+│   ├── 2998
 │   ├── 30
 │   ├── 31
+│   ├── 31738
 │   ├── 32
+│   ├── 32148
 │   ├── 326
 │   ├── 33
 │   ├── 34
 │   ├── 35
 │   ├── 354
 │   ├── 36
+│   ├── 3672
 │   ├── 37
+│   ├── 3711
+│   ├── 3736
+│   ├── 3738
+│   ├── 3747
+│   ├── 3752
+│   ├── 3753
+│   ├── 3759
+│   ├── 3775
 │   ├── 38
+│   ├── 3818
+│   ├── 3819
 │   ├── 382
 │   ├── 39
 │   ├── 4
 │   ├── 41
 │   ├── 457
-│   ├── 4712
-│   ├── 4716
-│   ├── 4717
 │   ├── 4789
 │   ├── 49
 │   ├── 498
@@ -838,10 +897,6 @@ tree -d -L 2 /</code></pre>
 │   ├── 7255
 │   ├── 78
 │   ├── 8
-│   ├── 8539
-│   ├── 8545
-│   ├── 8546
-│   ├── 8547
 │   ├── 9
 │   ├── 934
 │   ├── 936
@@ -854,7 +909,7 @@ tree -d -L 2 /</code></pre>
 │   ├── irq
 │   ├── net -&gt; self/net
 │   ├── scsi
-│   ├── self -&gt; 14751
+│   ├── self -&gt; 3819
 │   ├── sys
 │   ├── sysvipc
 │   └── tty
@@ -904,10 +959,9 @@ tree -d -L 2 /</code></pre>
 │   └── power
 ├── tmp
 │   ├── hsperfdata_root
-│   ├── Rtmp2OvCTd
-│   ├── RtmptEPG3e
-│   ├── ssh-aFyCdJfnaj
-│   ├── ssh-KMrFnKkgTa
+│   ├── Rtmp0o5xHI
+│   ├── RtmpAUrxJr
+│   ├── RtmpQgFtsP
 │   └── systemd-private-f20cdec98ae442be8c06147a98593081-chronyd.service-9eSlCD
 ├── usr
 │   ├── bin
@@ -943,7 +997,7 @@ tree -d -L 2 /</code></pre>
     ├── tmp
     └── yp
 
-342 directories</code></pre></li>
+384 directories</code></pre></li>
 </ul>
 </div>
 <div id="move-around-the-file-system" class="section level2">
@@ -972,7 +1026,7 @@ screenshot_top.png
 Vi_Cheat_Sheet.pdf</code></pre></li>
 <li><p><code>ls -l</code> lists detailed contents of a directory:</p>
 <pre class="bash"><code>ls -l</code></pre>
-<pre><code>total 5304
+<pre><code>total 5404
 -rw-r--r--. 1 huazhou huazhou     258 Jan  3 03:27 autoSim.R
 -rw-r--r--. 1 huazhou huazhou  110345 Jan  3 03:27 Emacs_Reference_Card.pdf
 -rw-r--r--. 1 huazhou huazhou  157353 Jan  3 03:27 IDRE_Winter_2019_Workshops.pdf
@@ -981,8 +1035,8 @@ Vi_Cheat_Sheet.pdf</code></pre></li>
 -rw-r--r--. 1 huazhou huazhou   11662 Jan  3 03:27 linux_directory_structure.png
 -rw-r--r--. 1 huazhou huazhou   42472 Jan  3 03:27 linux_filepermission_oct.png
 -rw-r--r--. 1 huazhou huazhou  102188 Jan  3 03:27 linux_filepermission.png
--rw-r--r--. 1 huazhou huazhou 3285670 Jan  3 03:27 linux.html
--rw-r--r--. 1 huazhou huazhou   23976 Jan  3 03:27 linux.Rmd
+-rw-r--r--. 1 huazhou huazhou 3384437 Jan  4 02:54 linux.html
+-rw-r--r--. 1 huazhou huazhou   24662 Jan  4 03:04 linux.Rmd
 -rw-r--r--. 1 huazhou huazhou     381 Jan  3 03:27 meanEst.R
 -rw-r--r--. 1 huazhou huazhou  437112 Jan  3 03:27 redhat_kills_centos.png
 -rw-r--r--. 1 huazhou huazhou  141962 Jan  3 03:27 Richard_Stallman_2013.png
@@ -991,8 +1045,8 @@ Vi_Cheat_Sheet.pdf</code></pre></li>
 -rw-r--r--. 1 huazhou huazhou  199492 Jan  3 03:27 Vi_Cheat_Sheet.pdf</code></pre></li>
 <li><p><code>ls -al</code> lists all contents of a directory, including those start with <code>.</code> (hidden folders):</p>
 <pre class="bash"><code>ls -al</code></pre>
-<pre><code>total 5312
-drwxr-xr-x. 2 huazhou huazhou    4096 Jan  3 03:32 .
+<pre><code>total 5420
+drwxr-xr-x. 2 huazhou huazhou    4096 Jan  4 02:54 .
 drwxr-xr-x. 6 huazhou huazhou    4096 Jan  3 03:27 ..
 -rw-r--r--. 1 huazhou huazhou     258 Jan  3 03:27 autoSim.R
 -rw-r--r--. 1 huazhou huazhou  110345 Jan  3 03:27 Emacs_Reference_Card.pdf
@@ -1002,9 +1056,10 @@ drwxr-xr-x. 6 huazhou huazhou    4096 Jan  3 03:27 ..
 -rw-r--r--. 1 huazhou huazhou   11662 Jan  3 03:27 linux_directory_structure.png
 -rw-r--r--. 1 huazhou huazhou   42472 Jan  3 03:27 linux_filepermission_oct.png
 -rw-r--r--. 1 huazhou huazhou  102188 Jan  3 03:27 linux_filepermission.png
--rw-r--r--. 1 huazhou huazhou 3285670 Jan  3 03:27 linux.html
--rw-r--r--. 1 huazhou huazhou   23976 Jan  3 03:27 linux.Rmd
+-rw-r--r--. 1 huazhou huazhou 3384437 Jan  4 02:54 linux.html
+-rw-r--r--. 1 huazhou huazhou   24662 Jan  4 03:04 linux.Rmd
 -rw-r--r--. 1 huazhou huazhou     381 Jan  3 03:27 meanEst.R
+-rw-r--r--. 1 huazhou huazhou    4097 Jan  4 02:54 .RData
 -rw-r--r--. 1 huazhou huazhou  437112 Jan  3 03:27 redhat_kills_centos.png
 -rw-r--r--. 1 huazhou huazhou  141962 Jan  3 03:27 Richard_Stallman_2013.png
 -rw-r--r--. 1 huazhou huazhou     498 Jan  3 03:27 runSim.R
@@ -1038,7 +1093,7 @@ drwxr-xr-x. 6 huazhou huazhou    4096 Jan  3 03:27 ..
 <li><p><code>chmod 751 file</code> sets permission <code>rwxr-x--x</code> to a file.</p></li>
 <li><p><code>groups userid</code> shows which group(s) a user belongs to:</p>
 <pre class="bash"><code>groups huazhou</code></pre>
-<pre><code>huazhou : huazhou adm video</code></pre></li>
+<pre><code>huazhou : huazhou adm video google-sudoers</code></pre></li>
 </ul>
 </div>
 <div id="manipulate-files-and-directories" class="section level2">
@@ -1251,7 +1306,7 @@ estMeanPrimes(x)</code></pre></li>
 <ul>
 <li><p><code>|</code> sends output from one command as input of another command.</p>
 <pre class="bash"><code>ls -l | head -5</code></pre>
-<pre><code>total 5304
+<pre><code>total 5404
 -rw-r--r--. 1 huazhou huazhou     258 Jan  3 03:27 autoSim.R
 -rw-r--r--. 1 huazhou huazhou  110345 Jan  3 03:27 Emacs_Reference_Card.pdf
 -rw-r--r--. 1 huazhou huazhou  157353 Jan  3 03:27 IDRE_Winter_2019_Workshops.pdf
@@ -1298,14 +1353,14 @@ grep &#39;CentOS&#39; linux.Rmd</code></pre>
     sed &#39;s/CentOS/RHEL/&#39; linux.Rmd | grep RHEL</code></pre></li>
 <li><p>Show matching line numbers:</p>
 <pre class="bash"><code>grep -n &#39;CentOS&#39; linux.Rmd</code></pre>
-<pre><code>37:- RHEL/CentOS is popular on servers. (In December 2020, Red Hat terminated the development of CentOS Linux distribution.)
-43:- The teaching server for this class runs CentOS 7. UCLA Hoffman2 cluster runs CentOS 7.9.2009 (as of 2022-01-01).
-333:- Show lines that contain string `CentOS`:
-336:    grep &#39;CentOS&#39; linux.Rmd
-341:    grep &#39;CentOS&#39; *.Rmd
-346:    grep -n &#39;CentOS&#39; linux.Rmd
-363:- Replace `CentOS` by `RHEL` in a text file:
-365:    sed &#39;s/CentOS/RHEL/&#39; linux.Rmd | grep RHEL</code></pre></li>
+<pre><code>47:- RHEL/CentOS is popular on servers. (In December 2020, Red Hat terminated the development of CentOS Linux distribution.)
+53:- The teaching server for this class runs CentOS 7. UCLA Hoffman2 cluster runs CentOS 7.9.2009 (as of 2022-01-01).
+343:- Show lines that contain string `CentOS`:
+346:    grep &#39;CentOS&#39; linux.Rmd
+351:    grep &#39;CentOS&#39; *.Rmd
+356:    grep -n &#39;CentOS&#39; linux.Rmd
+373:- Replace `CentOS` by `RHEL` in a text file:
+375:    sed &#39;s/CentOS/RHEL/&#39; linux.Rmd | grep RHEL</code></pre></li>
 <li><p>Find all files in current directory with <code>.png</code> extension:</p>
 <pre class="bash"><code>ls | grep &#39;.png$&#39;</code></pre>
 <pre><code>key_authentication_1.png
@@ -1318,7 +1373,7 @@ Richard_Stallman_2013.png
 screenshot_top.png</code></pre></li>
 <li><p>Find all directories in the current directory:</p>
 <pre class="bash"><code>ls -al | grep &#39;^d&#39;</code></pre>
-<pre><code>drwxr-xr-x. 2 huazhou huazhou    4096 Jan  3 03:32 .
+<pre><code>drwxr-xr-x. 2 huazhou huazhou    4096 Jan  4 02:54 .
 drwxr-xr-x. 6 huazhou huazhou    4096 Jan  3 03:27 ..</code></pre></li>
 </ul>
 </div>
@@ -1357,28 +1412,63 @@ operator:x:11:0:operator:/root:/sbin/nologin</code></pre>
 <p>Each line contains fields (1) user name, (2) password, (3) user ID, (4) group ID, (5) user ID info, (6) home directory, and (7) command shell, spearated by <code>:</code>.</p></li>
 <li><p>Print sorted list of login names:</p>
 <pre class="bash"><code>awk -F: &#39;{ print $1 }&#39; /etc/passwd | sort | head -10</code></pre>
-<pre><code>adm
+<pre><code>aarbolante
+adm
 bin
+blei001
+capj245
 chrony
 daemon
 dbus
-ftp
-games
-halt
-huazhou
-lp</code></pre></li>
+djlavine
+ehodzic</code></pre></li>
 <li><p>Print number of lines in a file, as <code>NR</code> stands for Number of Rows:</p>
 <pre class="bash"><code>awk &#39;END { print NR }&#39; /etc/passwd</code></pre>
-<pre><code>23</code></pre>
+<pre><code>66</code></pre>
 <p>or</p>
 <pre class="bash"><code>wc -l /etc/passwd</code></pre>
-<pre><code>23 /etc/passwd</code></pre>
+<pre><code>66 /etc/passwd</code></pre>
 <p>or (not displaying file name)</p>
 <pre class="bash"><code>wc -l &lt; /etc/passwd</code></pre>
-<pre><code>23</code></pre></li>
+<pre><code>66</code></pre></li>
 <li><p>Print login names with UID in range <code>1000-1035</code>:</p>
 <pre class="bash"><code>awk -F: &#39;{if ($3 &gt;= 1000 &amp;&amp; $3 &lt;= 1035) print}&#39; /etc/passwd</code></pre>
-<pre><code>huazhou:x:1000:1001::/home/huazhou:/bin/bash</code></pre></li>
+<pre><code>huazhou:x:1000:1001::/home/huazhou:/bin/bash
+maschepps:x:1001:1003::/home/maschepps:/bin/bash
+aarbolante:x:1002:1004::/home/aarbolante:/bin/bash
+rozeta:x:1003:1005::/home/rozeta:/bin/bash
+yanlongbai975:x:1004:1006::/home/yanlongbai975:/bin/bash
+ritazxcai:x:1005:1007::/home/ritazxcai:/bin/bash
+may.lyn.cheah.phd:x:1006:1008::/home/may.lyn.cheah.phd:/bin/bash
+yifan00:x:1007:1009::/home/yifan00:/bin/bash
+yuruidong99:x:1008:1010::/home/yuruidong99:/bin/bash
+fangyi:x:1009:1011::/home/fangyi:/bin/bash
+sharonfeng:x:1010:1012::/home/sharonfeng:/bin/bash
+rfisher2022:x:1011:1013::/home/rfisher2022:/bin/bash
+seamusgallivan:x:1012:1014::/home/seamusgallivan:/bin/bash
+ehodzic:x:1013:1015::/home/ehodzic:/bin/bash
+ionahu08:x:1014:1016::/home/ionahu08:/bin/bash
+lillyhuang25:x:1015:1017::/home/lillyhuang25:/bin/bash
+jamshidian:x:1016:1018::/home/jamshidian:/bin/bash
+jonathanking192:x:1017:1019::/home/jonathanking192:/bin/bash
+yllai:x:1018:1020::/home/yllai:/bin/bash
+djlavine:x:1019:1021::/home/djlavine:/bin/bash
+blei001:x:1020:1022::/home/blei001:/bin/bash
+lifengxue2000:x:1021:1023::/home/lifengxue2000:/bin/bash
+yuyuanlin:x:1022:1024::/home/yuyuanlin:/bin/bash
+javim013:x:1023:1025::/home/javim013:/bin/bash
+tokramm:x:1024:1026::/home/tokramm:/bin/bash
+tomokiokuno0528:x:1025:1027::/home/tomokiokuno0528:/bin/bash
+qny2021:x:1026:1028::/home/qny2021:/bin/bash
+yuhang886688:x:1027:1029::/home/yuhang886688:/bin/bash
+jqin10:x:1028:1030::/home/jqin10:/bin/bash
+mimi327:x:1029:1031::/home/mimi327:/bin/bash
+nataliesisto:x:1030:1032::/home/nataliesisto:/bin/bash
+hangsun:x:1031:1033::/home/hangsun:/bin/bash
+rsusene:x:1032:1034::/home/rsusene:/bin/bash
+jiahaotian0702:x:1033:1035::/home/jiahaotian0702:/bin/bash
+wanghw:x:1034:1036::/home/wanghw:/bin/bash
+wongj1721:x:1035:1037::/home/wongj1721:/bin/bash</code></pre></li>
 <li><p>Print login names and log-in shells in comma-seperated format:</p>
 <pre class="bash"><code>awk -F: &#39;{OFS = &quot;,&quot;} {print $1, $7}&#39; /etc/passwd</code></pre>
 <pre><code>root,/bin/bash
@@ -1403,7 +1493,50 @@ chrony,/sbin/nologin
 huazhou,/bin/bash
 tss,/sbin/nologin
 rstudio-server,/bin/bash
-shiny,/bin/sh</code></pre></li>
+shiny,/bin/sh
+maschepps,/bin/bash
+aarbolante,/bin/bash
+rozeta,/bin/bash
+yanlongbai975,/bin/bash
+ritazxcai,/bin/bash
+may.lyn.cheah.phd,/bin/bash
+yifan00,/bin/bash
+yuruidong99,/bin/bash
+fangyi,/bin/bash
+sharonfeng,/bin/bash
+rfisher2022,/bin/bash
+seamusgallivan,/bin/bash
+ehodzic,/bin/bash
+ionahu08,/bin/bash
+lillyhuang25,/bin/bash
+jamshidian,/bin/bash
+jonathanking192,/bin/bash
+yllai,/bin/bash
+djlavine,/bin/bash
+blei001,/bin/bash
+lifengxue2000,/bin/bash
+yuyuanlin,/bin/bash
+javim013,/bin/bash
+tokramm,/bin/bash
+tomokiokuno0528,/bin/bash
+qny2021,/bin/bash
+yuhang886688,/bin/bash
+jqin10,/bin/bash
+mimi327,/bin/bash
+nataliesisto,/bin/bash
+hangsun,/bin/bash
+rsusene,/bin/bash
+jiahaotian0702,/bin/bash
+wanghw,/bin/bash
+wongj1721,/bin/bash
+lsyang,/bin/bash
+khyeh0816,/bin/bash
+younghograd,/bin/bash
+yueyu99,/bin/bash
+qzhang42,/bin/bash
+zixiz,/bin/bash
+naying,/bin/bash
+capj245,/bin/bash</code></pre></li>
 <li><p>Print login names and indicate those with UID&gt;1000 as <code>vip</code>:</p>
 <pre class="bash"><code>awk -F: -v status=&quot;&quot; &#39;{OFS = &quot;,&quot;} 
 {if ($3 &gt;= 1000) status=&quot;vip&quot;; else status=&quot;regular&quot;} 
@@ -1430,7 +1563,50 @@ chrony,regular
 huazhou,vip
 tss,regular
 rstudio-server,regular
-shiny,regular</code></pre></li>
+shiny,regular
+maschepps,vip
+aarbolante,vip
+rozeta,vip
+yanlongbai975,vip
+ritazxcai,vip
+may.lyn.cheah.phd,vip
+yifan00,vip
+yuruidong99,vip
+fangyi,vip
+sharonfeng,vip
+rfisher2022,vip
+seamusgallivan,vip
+ehodzic,vip
+ionahu08,vip
+lillyhuang25,vip
+jamshidian,vip
+jonathanking192,vip
+yllai,vip
+djlavine,vip
+blei001,vip
+lifengxue2000,vip
+yuyuanlin,vip
+javim013,vip
+tokramm,vip
+tomokiokuno0528,vip
+qny2021,vip
+yuhang886688,vip
+jqin10,vip
+mimi327,vip
+nataliesisto,vip
+hangsun,vip
+rsusene,vip
+jiahaotian0702,vip
+wanghw,vip
+wongj1721,vip
+lsyang,vip
+khyeh0816,vip
+younghograd,vip
+yueyu99,vip
+qzhang42,vip
+zixiz,vip
+naying,vip
+capj245,vip</code></pre></li>
 </ul>
 </div>
 <div id="text-editors" class="section level2">
@@ -1509,160 +1685,147 @@ shiny,regular</code></pre></li>
 <li><p>Each process has Process ID (PID), Username (UID), Parent process ID (PPID), Time and data process started (STIME), time running (TIME), etc.</p>
 <pre class="bash"><code>ps</code></pre>
 <pre><code>  PID TTY          TIME CMD
- 1366 ?        00:00:05 sshd
- 1368 ?        00:00:00 sftp-server
- 8545 ?        00:00:00 sshd
- 8547 ?        00:00:00 sftp-server
-14333 ?        00:00:04 rsession
-14707 ?        00:00:01 R
-14824 ?        00:00:00 sh
-14825 ?        00:00:00 ps</code></pre></li>
+ 2222 ?        00:00:22 rsession
+ 3775 ?        00:00:01 R
+ 3892 ?        00:00:00 sh
+ 3893 ?        00:00:00 ps</code></pre></li>
 <li><p>All current running processes:</p>
 <pre class="bash"><code>ps -eaf</code></pre>
 <pre><code>UID        PID  PPID  C STIME TTY          TIME CMD
-root         1     0  0 00:26 ?        00:00:02 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
-root         2     0  0 00:26 ?        00:00:00 [kthreadd]
-root         4     2  0 00:26 ?        00:00:00 [kworker/0:0H]
-root         5     2  0 00:26 ?        00:00:05 [kworker/u8:0]
-root         6     2  0 00:26 ?        00:00:00 [ksoftirqd/0]
-root         7     2  0 00:26 ?        00:00:00 [migration/0]
-root         8     2  0 00:26 ?        00:00:00 [rcu_bh]
-root         9     2  0 00:26 ?        00:00:07 [rcu_sched]
-root        10     2  0 00:26 ?        00:00:00 [lru-add-drain]
-root        11     2  0 00:26 ?        00:00:00 [watchdog/0]
-root        12     2  0 00:26 ?        00:00:00 [watchdog/1]
-root        13     2  0 00:26 ?        00:00:00 [migration/1]
-root        14     2  0 00:26 ?        00:00:00 [ksoftirqd/1]
-root        16     2  0 00:26 ?        00:00:00 [kworker/1:0H]
-root        17     2  0 00:26 ?        00:00:00 [watchdog/2]
-root        18     2  0 00:26 ?        00:00:00 [migration/2]
-root        19     2  0 00:26 ?        00:00:00 [ksoftirqd/2]
-root        21     2  0 00:26 ?        00:00:00 [kworker/2:0H]
-root        22     2  0 00:26 ?        00:00:00 [watchdog/3]
-root        23     2  0 00:26 ?        00:00:00 [migration/3]
-root        24     2  0 00:26 ?        00:00:00 [ksoftirqd/3]
-root        26     2  0 00:26 ?        00:00:00 [kworker/3:0H]
-root        28     2  0 00:26 ?        00:00:00 [kdevtmpfs]
-root        29     2  0 00:26 ?        00:00:00 [netns]
-root        30     2  0 00:26 ?        00:00:00 [khungtaskd]
-root        31     2  0 00:26 ?        00:00:00 [writeback]
-root        32     2  0 00:26 ?        00:00:00 [kintegrityd]
-root        33     2  0 00:26 ?        00:00:00 [bioset]
-root        34     2  0 00:26 ?        00:00:00 [bioset]
-root        35     2  0 00:26 ?        00:00:00 [bioset]
-root        36     2  0 00:26 ?        00:00:00 [kblockd]
-root        37     2  0 00:26 ?        00:00:00 [md]
-root        38     2  0 00:26 ?        00:00:00 [edac-poller]
-root        39     2  0 00:26 ?        00:00:00 [watchdogd]
-root        41     2  0 00:26 ?        00:00:00 [kworker/2:1]
-root        49     2  0 00:26 ?        00:00:01 [kswapd0]
-root        50     2  0 00:26 ?        00:00:00 [ksmd]
-root        51     2  0 00:26 ?        00:00:00 [khugepaged]
-root        52     2  0 00:26 ?        00:00:00 [crypto]
-root        60     2  0 00:26 ?        00:00:00 [kthrotld]
-root        61     2  0 00:26 ?        00:00:00 [kmpath_rdacd]
-root        62     2  0 00:26 ?        00:00:00 [kaluad]
-root        63     2  0 00:26 ?        00:00:00 [kpsmoused]
-root        65     2  0 00:26 ?        00:00:00 [ipv6_addrconf]
-root        78     2  0 00:26 ?        00:00:00 [deferwq]
-root       133     2  0 00:26 ?        00:00:00 [kauditd]
-root       199     2  0 00:26 ?        00:00:00 [virtscsi-scan]
-root       200     2  0 00:26 ?        00:00:00 [scsi_eh_0]
-root       201     2  0 00:26 ?        00:00:00 [scsi_tmf_0]
-root       212     2  0 00:26 ?        00:00:02 [kworker/0:1H]
-root       215     2  0 00:26 ?        00:00:00 [kworker/1:2]
-root       233     2  0 00:26 ?        00:00:00 [kworker/2:1H]
-root       251     2  0 00:26 ?        00:00:00 [bioset]
-root       252     2  0 00:26 ?        00:00:00 [xfsalloc]
-root       253     2  0 00:26 ?        00:00:00 [xfs_mru_cache]
-root       254     2  0 00:26 ?        00:00:00 [xfs-buf/sda2]
-root       255     2  0 00:26 ?        00:00:00 [xfs-data/sda2]
-root       256     2  0 00:26 ?        00:00:00 [xfs-conv/sda2]
-root       257     2  0 00:26 ?        00:00:00 [xfs-cil/sda2]
-root       258     2  0 00:26 ?        00:00:00 [xfs-reclaim/sda]
-root       259     2  0 00:26 ?        00:00:00 [xfs-log/sda2]
-root       260     2  0 00:26 ?        00:00:00 [xfs-eofblocks/s]
-root       261     2  0 00:26 ?        00:00:03 [xfsaild/sda2]
-root       262     2  0 00:26 ?        00:00:00 [kworker/1:1H]
-root       263     2  0 00:26 ?        00:00:00 [kworker/3:1H]
-root       326     1  0 00:26 ?        00:00:00 /usr/lib/systemd/systemd-journald
-root       354     1  0 00:26 ?        00:00:00 /usr/lib/systemd/systemd-udevd
-root       382     2  0 00:26 ?        00:00:00 [hwrng]
-root       457     1  0 00:26 ?        00:00:00 /sbin/auditd
-polkitd    498     1  0 00:26 ?        00:00:00 /usr/lib/polkit-1/polkitd --no-debug
-dbus       501     1  0 00:26 ?        00:00:00 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
-chrony     507     1  0 00:26 ?        00:00:00 /usr/sbin/chronyd
-root       508     1  0 00:26 ?        00:00:00 /usr/sbin/acpid
-root       525     1  0 00:26 ?        00:00:00 /usr/bin/python2 -Es /usr/sbin/firewalld --nofork --nopid
-root       526     1  0 00:26 tty1     00:00:00 /sbin/agetty --noclear tty1 linux
-root       527     1  0 00:26 ttyS0    00:00:00 /sbin/agetty --keep-baud 115200,38400,9600 ttyS0 vt220
-root       547     1  0 00:26 ?        00:00:00 /usr/sbin/NetworkManager --no-daemon
-root       670   547  0 00:26 ?        00:00:00 /sbin/dhclient -d -q -sf /usr/libexec/nm-dhcp-helper -pf /var/run/dhclient-eth0.pid -lf /var/lib/NetworkManager/dhclient-2f272bb6-80c6-470e-9878-f080f7860f33-eth0.lease -cf /var/lib/NetworkManager/dhclient-eth0.conf eth0
-root       934     1  0 00:26 ?        00:00:01 /usr/bin/python2 -Es /usr/sbin/tuned -l -P
-root       936     1  0 00:26 ?        00:00:06 /usr/bin/google_osconfig_agent
-root       937     1  0 00:26 ?        00:00:00 /usr/sbin/rsyslogd -n
-root       938     1  0 00:26 ?        00:00:01 /usr/bin/google_guest_agent
-root      1172     1  0 00:26 ?        00:00:00 /usr/sbin/sshd -D
-root      1239     1  0 00:26 ?        00:00:00 /usr/lib/systemd/systemd-logind
-root      1295     1  0 00:26 ?        00:00:00 /usr/sbin/crond -n
-root      1322     1  0 00:26 ?        00:00:00 /usr/libexec/postfix/master -w
-postfix   1326  1322  0 00:26 ?        00:00:00 qmgr -l -t unix -u
-root      1363  1172  0 00:28 ?        00:00:00 sshd: huazhou [priv]
-huazhou   1366  1363  0 00:28 ?        00:00:05 sshd: huazhou@pts/0
-huazhou   1367  1366  0 00:28 pts/0    00:00:00 -bash
-huazhou   1368  1366  0 00:28 ?        00:00:00 /usr/libexec/openssh/sftp-server
-root      1654     2  0 00:55 ?        00:00:00 [jbd2/sdb-8]
-root      1655     2  0 00:55 ?        00:00:00 [ext4-rsv-conver]
-root      1689     1  0 01:01 ?        00:00:00 /usr/sbin/anacron -s
-root      4712  1689  0 01:35 ?        00:00:00 /bin/bash /bin/run-parts /etc/cron.daily
-root      4716  4712  0 01:35 ?        00:00:00 /usr/bin/python -tt /usr/sbin/yum-cron
-root      4717  4712  0 01:35 ?        00:00:00 awk -v progname=/etc/cron.daily/0yum-daily.cron progname { ????   print progname &quot;:\n&quot; ????   progname=&quot;&quot;; ???       } ???       { print; }
-rstudio+  4789     1  0 01:35 ?        00:00:03 /usr/lib/rstudio-server/bin/rserver
-root      7255     1  0 01:45 ?        00:00:00 /opt/shiny-server/ext/node/bin/shiny-server /opt/shiny-server/lib/main.js
-root      8539  1172  0 02:39 ?        00:00:00 sshd: huazhou [priv]
-huazhou   8545  8539  0 02:39 ?        00:00:00 sshd: huazhou@pts/1
-huazhou   8546  8545  0 02:39 pts/1    00:00:00 -bash
-huazhou   8547  8545  0 02:39 ?        00:00:00 /usr/libexec/openssh/sftp-server
-root     10283     2  0 03:01 ?        00:00:00 [kworker/3:1]
-root     10736     2  0 03:04 ?        00:00:08 [kworker/0:2]
-root     10767     2  0 03:04 ?        00:00:00 [kworker/2:2]
-root     12558     2  0 03:10 ?        00:00:00 [kworker/1:1]
-root     13577     2  0 03:16 ?        00:00:00 [kworker/u8:1]
-root     14288     2  0 03:26 ?        00:00:00 [kworker/0:0]
-root     14299     2  0 03:26 ?        00:00:00 [kworker/3:2]
-huazhou  14333  4789  1 03:27 ?        00:00:04 /usr/lib/rstudio-server/bin/rsession -u huazhou --session-use-secure-cookies 0 --session-root-path / --session-same-site 0 --launcher-token 0FE0B264 --r-restore-workspace 2 --r-run-rprofile 2
-root     14583     2  0 03:31 ?        00:00:00 [kworker/3:0]
-huazhou  14681 14333  0 03:33 pts/2    00:00:00 bash -l
-huazhou  14707 14333 51 03:33 ?        00:00:01 /usr/lib64/R/bin/exec/R --no-save --no-restore -s -e rmarkdown::render(&#39;/home/huazhou/203b-2022winter/slides/02-linux/linux.Rmd&#39;,~+~~+~encoding~+~=~+~&#39;UTF-8&#39;);
-huazhou  14826 14707  0 03:33 ?        00:00:00 sh -c &#39;bash&#39;  -c &#39;ps -eaf&#39; 2&gt;&amp;1
-huazhou  14827 14826  0 03:33 ?        00:00:00 ps -eaf
-postfix  15511  1322  0 02:06 ?        00:00:00 pickup -l -t unix -u</code></pre></li>
+root         1     0  0 Jan03 ?        00:00:04 /usr/lib/systemd/systemd --switched-root --system --deserialize 22
+root         2     0  0 Jan03 ?        00:00:00 [kthreadd]
+root         4     2  0 Jan03 ?        00:00:00 [kworker/0:0H]
+root         5     2  0 Jan03 ?        00:00:05 [kworker/u8:0]
+root         6     2  0 Jan03 ?        00:00:00 [ksoftirqd/0]
+root         7     2  0 Jan03 ?        00:00:00 [migration/0]
+root         8     2  0 Jan03 ?        00:00:00 [rcu_bh]
+root         9     2  0 Jan03 ?        00:00:13 [rcu_sched]
+root        10     2  0 Jan03 ?        00:00:00 [lru-add-drain]
+root        11     2  0 Jan03 ?        00:00:00 [watchdog/0]
+root        12     2  0 Jan03 ?        00:00:00 [watchdog/1]
+root        13     2  0 Jan03 ?        00:00:00 [migration/1]
+root        14     2  0 Jan03 ?        00:00:00 [ksoftirqd/1]
+root        16     2  0 Jan03 ?        00:00:00 [kworker/1:0H]
+root        17     2  0 Jan03 ?        00:00:00 [watchdog/2]
+root        18     2  0 Jan03 ?        00:00:00 [migration/2]
+root        19     2  0 Jan03 ?        00:00:00 [ksoftirqd/2]
+root        21     2  0 Jan03 ?        00:00:00 [kworker/2:0H]
+root        22     2  0 Jan03 ?        00:00:00 [watchdog/3]
+root        23     2  0 Jan03 ?        00:00:00 [migration/3]
+root        24     2  0 Jan03 ?        00:00:00 [ksoftirqd/3]
+root        26     2  0 Jan03 ?        00:00:00 [kworker/3:0H]
+root        28     2  0 Jan03 ?        00:00:00 [kdevtmpfs]
+root        29     2  0 Jan03 ?        00:00:00 [netns]
+root        30     2  0 Jan03 ?        00:00:00 [khungtaskd]
+root        31     2  0 Jan03 ?        00:00:00 [writeback]
+root        32     2  0 Jan03 ?        00:00:00 [kintegrityd]
+root        33     2  0 Jan03 ?        00:00:00 [bioset]
+root        34     2  0 Jan03 ?        00:00:00 [bioset]
+root        35     2  0 Jan03 ?        00:00:00 [bioset]
+root        36     2  0 Jan03 ?        00:00:00 [kblockd]
+root        37     2  0 Jan03 ?        00:00:00 [md]
+root        38     2  0 Jan03 ?        00:00:00 [edac-poller]
+root        39     2  0 Jan03 ?        00:00:00 [watchdogd]
+root        41     2  0 Jan03 ?        00:00:00 [kworker/2:1]
+root        49     2  0 Jan03 ?        00:00:03 [kswapd0]
+root        50     2  0 Jan03 ?        00:00:00 [ksmd]
+root        51     2  0 Jan03 ?        00:00:02 [khugepaged]
+root        52     2  0 Jan03 ?        00:00:00 [crypto]
+root        60     2  0 Jan03 ?        00:00:00 [kthrotld]
+root        61     2  0 Jan03 ?        00:00:00 [kmpath_rdacd]
+root        62     2  0 Jan03 ?        00:00:00 [kaluad]
+root        63     2  0 Jan03 ?        00:00:00 [kpsmoused]
+root        65     2  0 Jan03 ?        00:00:00 [ipv6_addrconf]
+root        78     2  0 Jan03 ?        00:00:00 [deferwq]
+root       133     2  0 Jan03 ?        00:00:00 [kauditd]
+root       199     2  0 Jan03 ?        00:00:00 [virtscsi-scan]
+root       200     2  0 Jan03 ?        00:00:00 [scsi_eh_0]
+root       201     2  0 Jan03 ?        00:00:00 [scsi_tmf_0]
+root       212     2  0 Jan03 ?        00:00:02 [kworker/0:1H]
+root       233     2  0 Jan03 ?        00:00:00 [kworker/2:1H]
+root       251     2  0 Jan03 ?        00:00:00 [bioset]
+root       252     2  0 Jan03 ?        00:00:00 [xfsalloc]
+root       253     2  0 Jan03 ?        00:00:00 [xfs_mru_cache]
+root       254     2  0 Jan03 ?        00:00:00 [xfs-buf/sda2]
+root       255     2  0 Jan03 ?        00:00:00 [xfs-data/sda2]
+root       256     2  0 Jan03 ?        00:00:00 [xfs-conv/sda2]
+root       257     2  0 Jan03 ?        00:00:00 [xfs-cil/sda2]
+root       258     2  0 Jan03 ?        00:00:00 [xfs-reclaim/sda]
+root       259     2  0 Jan03 ?        00:00:00 [xfs-log/sda2]
+root       260     2  0 Jan03 ?        00:00:00 [xfs-eofblocks/s]
+root       261     2  0 Jan03 ?        00:00:09 [xfsaild/sda2]
+root       262     2  0 Jan03 ?        00:00:00 [kworker/1:1H]
+root       263     2  0 Jan03 ?        00:00:00 [kworker/3:1H]
+root       326     1  0 Jan03 ?        00:00:02 /usr/lib/systemd/systemd-journald
+root       354     1  0 Jan03 ?        00:00:00 /usr/lib/systemd/systemd-udevd
+root       382     2  0 Jan03 ?        00:00:00 [hwrng]
+root       457     1  0 Jan03 ?        00:00:00 /sbin/auditd
+polkitd    498     1  0 Jan03 ?        00:00:00 /usr/lib/polkit-1/polkitd --no-debug
+dbus       501     1  0 Jan03 ?        00:00:01 /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+chrony     507     1  0 Jan03 ?        00:00:00 /usr/sbin/chronyd
+root       508     1  0 Jan03 ?        00:00:00 /usr/sbin/acpid
+root       525     1  0 Jan03 ?        00:00:00 /usr/bin/python2 -Es /usr/sbin/firewalld --nofork --nopid
+root       526     1  0 Jan03 tty1     00:00:00 /sbin/agetty --noclear tty1 linux
+root       527     1  0 Jan03 ttyS0    00:00:00 /sbin/agetty --keep-baud 115200,38400,9600 ttyS0 vt220
+root       547     1  0 Jan03 ?        00:00:01 /usr/sbin/NetworkManager --no-daemon
+root       670   547  0 Jan03 ?        00:00:00 /sbin/dhclient -d -q -sf /usr/libexec/nm-dhcp-helper -pf /var/run/dhclient-eth0.pid -lf /var/lib/NetworkManager/dhclient-2f272bb6-80c6-470e-9878-f080f7860f33-eth0.lease -cf /var/lib/NetworkManager/dhclient-eth0.conf eth0
+root       934     1  0 Jan03 ?        00:00:10 /usr/bin/python2 -Es /usr/sbin/tuned -l -P
+root       936     1  0 Jan03 ?        00:00:52 /usr/bin/google_osconfig_agent
+root       937     1  0 Jan03 ?        00:00:06 /usr/sbin/rsyslogd -n
+root       938     1  0 Jan03 ?        00:00:15 /usr/bin/google_guest_agent
+root      1239     1  0 Jan03 ?        00:00:00 /usr/lib/systemd/systemd-logind
+root      1295     1  0 Jan03 ?        00:00:00 /usr/sbin/crond -n
+root      1322     1  0 Jan03 ?        00:00:00 /usr/libexec/postfix/master -w
+postfix   1326  1322  0 Jan03 ?        00:00:00 qmgr -l -t unix -u
+root      1530     2  0 Jan03 ?        00:00:00 [kworker/u8:2]
+root      1654     2  0 Jan03 ?        00:00:01 [jbd2/sdb-8]
+root      1655     2  0 Jan03 ?        00:00:00 [ext4-rsv-conver]
+postfix   1969  1322  0 01:27 ?        00:00:00 pickup -l -t unix -u
+root      2160 32148  0 02:20 ?        00:00:00 sshd: tomokiokuno0528 [priv]
+tomokio+  2164  2160  0 02:20 ?        00:00:00 sshd: tomokiokuno0528@pts/0
+tomokio+  2165  2164  0 02:20 pts/0    00:00:00 -bash
+tomokio+  2194  4789  0 02:23 ?        00:00:09 /usr/lib/rstudio-server/bin/rsession -u tomokiokuno0528 --session-use-secure-cookies 0 --session-root-path / --session-same-site 0 --launcher-token 0FE0B264 --r-restore-workspace 2 --r-run-rprofile 2
+huazhou   2222  4789  0 02:23 ?        00:00:22 /usr/lib/rstudio-server/bin/rsession -u huazhou --session-use-secure-cookies 0 --session-root-path / --session-same-site 0 --launcher-token 0FE0B264 --r-restore-workspace 2 --r-run-rprofile 2
+huazhou   2676  2222  0 02:26 pts/1    00:00:00 bash -l
+root      2799     2  0 02:28 ?        00:00:00 [kworker/2:0]
+root      2936     2  0 02:31 ?        00:00:00 [kworker/1:2]
+root      2938     2  0 02:31 ?        00:00:03 [kworker/0:0]
+root      2998     2  0 02:46 ?        00:00:00 [kworker/3:2]
+root      3672     2  0 02:55 ?        00:00:00 [kworker/0:1]
+root      3711     2  0 02:57 ?        00:00:00 [kworker/3:1]
+root      3736  1295  0 03:01 ?        00:00:00 /usr/sbin/CROND -n
+root      3738  3736  0 03:01 ?        00:00:00 /bin/bash /bin/run-parts /etc/cron.hourly
+root      3747     1  0 03:01 ?        00:00:00 /usr/sbin/anacron -s
+root      3752  3738  0 03:01 ?        00:00:00 /usr/bin/python -tt /usr/sbin/yum-cron /etc/yum/yum-cron-hourly.conf
+root      3753  3738  0 03:01 ?        00:00:00 awk -v progname=/etc/cron.hourly/0yum-hourly.cron progname { ????   print progname &quot;:\n&quot; ????   progname=&quot;&quot;; ???       } ???       { print; }
+root      3759     2  0 03:02 ?        00:00:00 [kworker/3:0]
+huazhou   3775  2222 52 03:04 ?        00:00:01 /usr/lib64/R/bin/exec/R --no-save --no-restore -s -e rmarkdown::render(&#39;/home/huazhou/203b-2022winter/slides/02-linux/linux.Rmd&#39;,~+~~+~encoding~+~=~+~&#39;UTF-8&#39;);
+huazhou   3894  3775  0 03:04 ?        00:00:00 sh -c &#39;bash&#39;  -c &#39;ps -eaf&#39; 2&gt;&amp;1
+huazhou   3895  3894  0 03:04 ?        00:00:00 ps -eaf
+rstudio+  4789     1  0 Jan03 ?        00:00:32 /usr/lib/rstudio-server/bin/rserver
+root      7255     1  0 Jan03 ?        00:00:00 /opt/shiny-server/ext/node/bin/shiny-server /opt/shiny-server/lib/main.js
+root     31738     2  0 Jan03 ?        00:00:00 [kworker/1:1]
+root     32148     1  0 Jan03 ?        00:00:00 /usr/sbin/sshd -D</code></pre></li>
 <li><p>All Python processes:</p>
 <pre class="bash"><code>ps -eaf | grep python</code></pre>
-<pre><code>root       525     1  0 00:26 ?        00:00:00 /usr/bin/python2 -Es /usr/sbin/firewalld --nofork --nopid
-root       934     1  0 00:26 ?        00:00:01 /usr/bin/python2 -Es /usr/sbin/tuned -l -P
-root      4716  4712  0 01:35 ?        00:00:00 /usr/bin/python -tt /usr/sbin/yum-cron
-huazhou  14828 14707  0 03:33 ?        00:00:00 sh -c &#39;bash&#39;  -c &#39;ps -eaf | grep python&#39; 2&gt;&amp;1
-huazhou  14829 14828  0 03:33 ?        00:00:00 bash -c ps -eaf | grep python
-huazhou  14831 14829  0 03:33 ?        00:00:00 grep python</code></pre></li>
+<pre><code>root       525     1  0 Jan03 ?        00:00:00 /usr/bin/python2 -Es /usr/sbin/firewalld --nofork --nopid
+root       934     1  0 Jan03 ?        00:00:10 /usr/bin/python2 -Es /usr/sbin/tuned -l -P
+root      3752  3738  0 03:01 ?        00:00:00 /usr/bin/python -tt /usr/sbin/yum-cron /etc/yum/yum-cron-hourly.conf
+huazhou   3896  3775  0 03:04 ?        00:00:00 sh -c &#39;bash&#39;  -c &#39;ps -eaf | grep python&#39; 2&gt;&amp;1
+huazhou   3897  3896  0 03:04 ?        00:00:00 bash -c ps -eaf | grep python
+huazhou   3899  3897  0 03:04 ?        00:00:00 grep python</code></pre></li>
 <li><p>Process with PID=1:</p>
 <pre class="bash"><code>ps -fp 1</code></pre>
 <pre><code>UID        PID  PPID  C STIME TTY          TIME CMD
-root         1     0  0 00:26 ?        00:00:02 /usr/lib/systemd/systemd --switched-root --system --deserialize 22</code></pre></li>
+root         1     0  0 Jan03 ?        00:00:04 /usr/lib/systemd/systemd --switched-root --system --deserialize 22</code></pre></li>
 <li><p>All processes owned by a user:</p>
 <pre class="bash"><code>ps -fu huazhou</code></pre>
 <pre><code>UID        PID  PPID  C STIME TTY          TIME CMD
-huazhou   1366  1363  0 00:28 ?        00:00:05 sshd: huazhou@pts/0
-huazhou   1367  1366  0 00:28 pts/0    00:00:00 -bash
-huazhou   1368  1366  0 00:28 ?        00:00:00 /usr/libexec/openssh/sftp-server
-huazhou   8545  8539  0 02:39 ?        00:00:00 sshd: huazhou@pts/1
-huazhou   8546  8545  0 02:39 pts/1    00:00:00 -bash
-huazhou   8547  8545  0 02:39 ?        00:00:00 /usr/libexec/openssh/sftp-server
-huazhou  14333  4789  1 03:27 ?        00:00:04 /usr/lib/rstudio-server/bin/rsession -u huazhou --session-use-secure-cookies 0 --session-root-path / --session-same-site 0 --launcher-token 0FE0B264 --r-restore-workspace 2 --r-run-rprofile 2
-huazhou  14681 14333  0 03:33 pts/2    00:00:00 bash -l
-huazhou  14707 14333 52 03:33 ?        00:00:01 /usr/lib64/R/bin/exec/R --no-save --no-restore -s -e rmarkdown::render(&#39;/home/huazhou/203b-2022winter/slides/02-linux/linux.Rmd&#39;,~+~~+~encoding~+~=~+~&#39;UTF-8&#39;);
-huazhou  14834 14707  0 03:33 ?        00:00:00 sh -c &#39;bash&#39;  -c &#39;ps -fu huazhou&#39; 2&gt;&amp;1
-huazhou  14835 14834  0 03:33 ?        00:00:00 ps -fu huazhou</code></pre></li>
+huazhou   2222  4789  0 02:23 ?        00:00:22 /usr/lib/rstudio-server/bin/rsession -u huazhou --session-use-secure-cookies 0 --session-root-path / --session-same-site 0 --launcher-token 0FE0B264 --r-restore-workspace 2 --r-run-rprofile 2
+huazhou   2676  2222  0 02:26 pts/1    00:00:00 bash -l
+huazhou   3775  2222 53 03:04 ?        00:00:01 /usr/lib64/R/bin/exec/R --no-save --no-restore -s -e rmarkdown::render(&#39;/home/huazhou/203b-2022winter/slides/02-linux/linux.Rmd&#39;,~+~~+~encoding~+~=~+~&#39;UTF-8&#39;);
+huazhou   3902  3775  0 03:04 ?        00:00:00 sh -c &#39;bash&#39;  -c &#39;ps -fu huazhou&#39; 2&gt;&amp;1
+huazhou   3903  3902  0 03:04 ?        00:00:00 ps -fu huazhou</code></pre></li>
 </ul>
 </div>
 <div id="kill-processes" class="section level2">
@@ -1745,7 +1908,7 @@ huazhou  14835 14834  0 03:33 ?        00:00:00 ps -fu huazhou</code></pre></li>
 <pre class="bash"><code>chmod 700 ~/.ssh
 chmod 600 ~/.ssh/[KEY_FILENAME]
 chmod 644 ~/.ssh/[KEY_FILENAME].pub</code></pre>
-<p>Note Windows is different, it doesn’t allow change of permisisons.</p></li>
+<p>Note Windows is different, it doesn’t allow change of permissions.</p></li>
 </ul>
 <hr />
 <ul>
@@ -1754,7 +1917,7 @@ chmod 644 ~/.ssh/[KEY_FILENAME].pub</code></pre>
 <p>Make sure the permission of the <code>authorized_keys</code> file is <code>600 (-rw-------)</code>.</p></li>
 <li><p>Test your new key.</p>
 <pre class="bash"><code>ssh -i ~/.ssh/[KEY_FILENAME] [USERNAME]@server.ucla-biostat-203b.com</code></pre></li>
-<li><p>Now you don’t need password each time you connect from your machine to the teaching server.</p></li>
+<li><p>From now on, you don’t need password each time you connect from your machine to the teaching server.</p></li>
 </ul>
 <hr />
 <ul>
@@ -1906,7 +2069,7 @@ estMeanPrimes(x)</code></pre>
 <pre class="bash"><code>R CMD BATCH &#39;--args n=100&#39; runSim.R</code></pre>
 <p>or</p>
 <pre class="bash"><code>Rscript runSim.R n=100</code></pre>
-<pre><code>[1] 0.3040299</code></pre></li>
+<pre><code>[1] 0.3177256</code></pre></li>
 </ul>
 </div>
 <div id="run-long-jobs" class="section level2">
@@ -1917,7 +2080,7 @@ estMeanPrimes(x)</code></pre>
 <li><p><code>nohup</code> is POSIX standard thus available on Linux and MacOS.</p></li>
 <li><p>Run <code>runSim.R</code> in background and writes output to <code>nohup.out</code>:</p>
 <pre class="bash"><code>nohup Rscript runSim.R n=100 &amp;</code></pre>
-<pre><code>[1] 0.08602371</code></pre>
+<pre><code>[1] -0.07633016</code></pre>
 <p>The <code>&amp;</code> at the end of the command instructs Linux to run this command in background, so we gain control of the terminal immediately.</p></li>
 </ul>
 </div>
