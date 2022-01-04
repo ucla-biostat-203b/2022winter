@@ -37,14 +37,32 @@ csl: ../apa.csl
 
 ## Big data in 21st centry
 
-Four V's of big data:
+4V's of big data:
+
 <p align="center">
   <img src="./4-Vs-of-big-data.jpg" height="450" width="700">
 </p>
 Source: [IBM](http://www.ibmbigdatahub.com/infographic/four-vs-big-data).
 
+## Why are hiring?
+
+Following tables is based on a survey of 403 students who earned a master’s degree in statistics, biostatistics, or a related field (actuarial science, data science, informatics, math with stats focus) during the
+2019–2020 academic year. 
+
+<p align="center">
+  <img src="./ms-employment-sector.png" width="500">
+</p>
+
+Source: [AmStat News (2021 Nov)](https://magazine.amstat.org/wp-content/uploads/2021/11/AmstatNewsNov2021-updated.pdf).
+
+> there were more than 109 unique—although similar—job titles. The most
+common were data scientist (20), biostatistician
+(18), data analyst (9), biostatistician I (7), and
+statistician (5). 
+
 ## A typical data scientist on [LinkedIn](http://linkedin.com)
 
+A position posted by Genetech.
 <p align="center">
   <img src="./genetech.png" height="450" width="700">
 </p>
@@ -55,7 +73,16 @@ Source: [IBM](http://www.ibmbigdatahub.com/infographic/four-vs-big-data).
 
 - Read [syllabus](https://ucla-biostat-203b.github.io/2022winter/syllabus/syllabus.html) and [schedule](https://ucla-biostat-203b.github.io/2022winter/schedule/schedule.html) for a tentative list of topics and course logistics.
 
-- Fill out a short survey at <https://www.surveymonkey.com/r/9N8KVPH>. It helps me better tailor the course to your background.
+## Why R?
+
+<p align="center">
+  <img src="./ms-employment-software.png" width="500">
+</p>
+
+## More (free) UCLA resources for learning data science
+
+- IDRE workshops: <https://idre.ucla.edu/calendar>  
+
+- QCBio workshops: <https://qcb.ucla.edu/collaboratory/workshops/>
 
 ## References
-
