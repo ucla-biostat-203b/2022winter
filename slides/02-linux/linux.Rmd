@@ -379,11 +379,11 @@ man ls
 
 - `awk` is a filter and report writer.
 
-- First let's display first lines of the file `/etc/passwd`:
+- First let's display the content of the file `/etc/passwd`:
     ```{bash}
-    head /etc/passwd
+    cat /etc/passwd
     ```
-Each line contains fields (1) user name, (2) password, (3) user ID, (4) group ID, (5) user ID info, (6) home directory, and (7) command shell, spearated by `:`.
+Each line contains fields (1) user name, (2) password, (3) user ID, (4) group ID, (5) user ID info, (6) home directory, and (7) command shell, separated by `:`.
 
 - Print sorted list of login names:
     ```{bash}
@@ -469,7 +469,7 @@ Source: [Editor War](http://en.wikipedia.org/wiki/Editor_war) on Wikipedia.
 
 - Statisticians/data scientists write a lot of code. Critical to adopt a good IDE that goes beyond code editing: syntax highlighting, executing code within editor, debugging, profiling, version control, etc.
 
-- **R Studio**, Eclipse, Emacs, Matlab, Visual Studio, etc.
+- **RStudio**, Eclipse, Emacs, Matlab, Visual Studio, etc.
 
 # Processes
 
