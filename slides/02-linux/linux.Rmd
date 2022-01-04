@@ -669,7 +669,7 @@ Replace above `[USERNAME]` by your account user name on teaching server.
 
 ## Batch mode
 
-- Demo script [`meanEst.R`](https://raw.githubusercontent.com/ucla-biostat203b-2021winter/ucla-biostat203b-2021winter.github.io/master/slides/02-linux/meanEst.R) implements an (terrible) estimator of mean
+- Demo script [`meanEst.R`](https://raw.githubusercontent.com/ucla-biostat-203b/2022winter/main/slides/02-linux/meanEst.R) implements an (terrible) estimator of mean
 $$
   {\widehat \mu}_n = \frac{\sum_{i=1}^n x_i 1_{i \text{ is prime}}}{\sum_{i=1}^n 1_{i \text{ is prime}}}.
 $$
@@ -706,7 +706,7 @@ or
 
 - Parse command line arguments using magic formula
     ```{r, eval=FALSE}
-    for (arg in commandArgs(T)) {
+    for (arg in commandArgs(TRUE)) {
       eval(parse(text=arg))
     }
     ```
@@ -728,16 +728,16 @@ and then issue commands in R
 
 - Understand the magic formula `parse` and `eval`:
     ```{r, error=TRUE}
-    rm(list=ls())
+    rm(list = ls())
     print(x)
-    parse(text="x=3")
-    eval(parse(text="x=3"))
+    parse(text = "x=3")
+    eval(parse(text = "x=3"))
     print(x)
     ```
 
 ----
 
-- [`runSim.R`](https://raw.githubusercontent.com/ucla-biostat203b-2021winter/ucla-biostat203b-2021winter.github.io/master/slides/02-linux/runSim.R) has components: (1) **command argument parser**, (2) method implementation, (3) data generator with unspecified parameter `n`, and (4) estimation based on generated data.
+- [`runSim.R`](https://raw.githubusercontent.com/ucla-biostat-203b/2022winter/main/slides/02-linux/runSim.R) has components: (1) **command argument parser**, (2) method implementation, (3) data generator with unspecified parameter `n`, and (4) estimation based on generated data.
 ```{bash, echo=FALSE}
 cat runSim.R
 ```
@@ -796,7 +796,7 @@ R in conjuction with `nohup` (or `screen`) can be used to orchestrate a large si
 - Python in many ways makes a better _glue_.
 
 - Suppose we have 
-    - [`runSim.R`](https://raw.githubusercontent.com/ucla-biostat203b-2021winter/ucla-biostat203b-2021winter.github.io/master/slides/02-linux/runSim.R) which runs a simulation based on command line argument `n`.  
+    - [`runSim.R`](https://raw.githubusercontent.com/ucla-biostat-203b/2022winter/main/slides/02-linux/runSim.R) which runs a simulation based on command line argument `n`.  
     - A large collection of `n` values that we want to use in our simulation study.  
     - Access to a server with 128 cores.  
 How to parallelize the job?    
@@ -805,7 +805,7 @@ How to parallelize the job?
 
 - Option 2 (smarter): automate calls using R and `nohup`. 
 
-- Let's demonstrate using the script [autoSim.R](https://raw.githubusercontent.com/ucla-biostat203b-2021winter/ucla-biostat203b-2021winter.github.io/master/slides/02-linux/autoSim.R)
+- Let's demonstrate using the script [autoSim.R](https://raw.githubusercontent.com/ucla-biostat-203b/2022winter/main/slides/02-linux/autoSim.R)
     ```{bash}
     cat autoSim.R
     ```
@@ -823,3 +823,9 @@ Note when we call bash command using the `system` function in R, we set optional
 - Now we just need to write a script to collect results from the output files.
 
 - Later we will learn how to coordinate large scale computation on UCLA Hoffman2 cluster, using Linux and R scripting.
+
+## Some other Linux commands
+
+- Log out Linux: `exit` or `logout` or `ctrl+d`. 
+
+- Clear screen: `clear`. 
