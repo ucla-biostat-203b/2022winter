@@ -1,5 +1,6 @@
 ---
 title: "Biostat 203B Homework 1"
+author: Your Name
 subtitle: Due Jan 21 @ 11:59PM
 output: html_document
 ---
@@ -27,11 +28,13 @@ sessionInfo()
 
 5. After this course, you can make this repository public and use it to demonstrate your skill sets on job market.
 
-## Q2. Linux Shell Commands
+## Q2. Data ethics training
 
-1. This exercise (and later in this course) uses the [MIMIC-IV data](https://mimic-iv.mit.edu), a freely accessible critical care database developed by the MIT Lab for Computational Physiology. Follow the instructions at <https://mimic-iv.mit.edu/docs/access/> to (1) complete the CITI `Data or Specimens Only Research` course and (2) obtain the PhysioNet credential for using the MIMIC-IV data. Display the verification links to your completion report and completion certificate here. (Hint: The CITI training takes a couple hours and the PhysioNet credentialing takes a couple days; do not leave it to the last minute.)
+This exercise (and later in this course) uses the [MIMIC-IV data](https://mimic-iv.mit.edu), a freely accessible critical care database developed by the MIT Lab for Computational Physiology. Follow the instructions at <https://mimic-iv.mit.edu/docs/access/> to (1) complete the CITI `Data or Specimens Only Research` course and (2) obtain the PhysioNet credential for using the MIMIC-IV data. Display the verification links to your completion report and completion certificate here. (Hint: The CITI training takes a couple hours and the PhysioNet credentialing takes a couple days; do not leave it to the last minute.)
 
-2. The `/mnt/mimiciv/1.0` folder on teaching server contains data sets from MIMIC-IV. Refer to the documentation <https://mimic-iv.mit.edu/docs/datasets/> for details of data files.  
+## Q3. Linux Shell Commands
+
+1. The `/mnt/mimiciv/1.0` folder on teaching server contains data sets from MIMIC-IV. Refer to the documentation <https://mimic.mit.edu/docs/iv/> for details of data files.  
     ```{bash}
     ls -l /mnt/mimiciv/1.0
     ```
@@ -39,7 +42,9 @@ Please, do **not** put these data files into Git; they are big. Do **not** copy 
 
     Use Bash commands to answer following questions.
 
-3. Display the contents in the folders `core`, `hosp`, `icu`. What are the functionalities of the bash commands `zcat`, `zless`, `zmore`, and `zgrep`? 
+2. Display the contents in the folders `core`, `hosp`, `icu`. Why are these data files distributed as `.csv.gz` files instead of `.csv` (comma separated values) files? Read the page <https://mimic.mit.edu/docs/iv/> to understand what's in each folder.
+
+3. Briefly describe what bash commands `zcat`, `zless`, `zmore`, and `zgrep` do.
 
 4. What's the output of following bash script?
     ```{bash, eval=F}
@@ -50,15 +55,25 @@ Please, do **not** put these data files into Git; they are big. Do **not** copy 
     ```
 Display the number of lines in each data file using a similar loop.
 
-4. Display the first few lines of `admissions.csv.gz`. How many rows are in this data file? How many unique patients (identified by `subject_id`) are in this data file? What are the possible values taken by each of the variable `admission_type`, `admission_location`, `insurance`, `language`, `marital_status`, and `ethnicity`? Also report the count for each unique value of these variables. (Hint: combine Linux commands `zcat`, `head`/`tail`, `awk`, `uniq`, `wc`, and so on.)
+5. Display the first few lines of `admissions.csv.gz`. How many rows are in this data file? How many unique patients (identified by `subject_id`) are in this data file? (Hint: combine Linux commands `zcat`, `head`/`tail`, `awk`, `sort`, `uniq`, `wc`, and so on.)
 
-## Q3. Who's popular in Price and Prejudice
+6. What are the possible values taken by each of the variable `admission_type`, `admission_location`, `insurance`, and `ethnicity`? Also report the count for each unique value of these variables. (Hint: combine Linux commands `zcat`, `head`/`tail`, `awk`, `uniq -c`, `wc`, and so on.)
+
+## Q4. Who's popular in Price and Prejudice
 
 1. You and your friend just have finished reading *Pride and Prejudice* by Jane Austen. Among the four main characters in the book, Elizabeth, Jane, Lydia, and Darcy, your friend thinks that Darcy was the most mentioned. You, however, are certain it was Elizabeth. Obtain the full text of the novel from <http://www.gutenberg.org/cache/epub/42671/pg42671.txt> and save to your local folder. 
     ```{bash, eval=FALSE}
-    curl http://www.gutenberg.org/cache/epub/42671/pg42671.txt > pride_and_prejudice.txt
+    wget -nc http://www.gutenberg.org/cache/epub/42671/pg42671.txt
     ```
-Do **not** put this text file `pride_and_prejudice.txt` in Git. Tabulate the number of times each of the four characters is mentioned?
+Explain what `wget -nc` does. Do **not** put this text file `pg42671.txt` in Git. Complete the following loop to tabulate the number of times each of the four characters is mentioned using Linux commands.
+    ```{bash, eval=FALSE}
+    wget -nc http://www.gutenberg.org/cache/epub/42671/pg42671.txt
+    for char in Elizabeth Jane Lydia Darcy
+    do
+      echo $char:
+      # some commands here
+    done
+    ```
 
 2. What's the difference between the following two commands?
     ```{bash eval=FALSE}
@@ -78,10 +93,10 @@ Do **not** put this text file `pride_and_prejudice.txt` in Git. Tabulate the num
     ```
 Using `chmod` make the file executable by the owner, and run 
     ```{bash eval=FALSE}
-    ./middle.sh pride_and_prejudice.txt 20 5
+    ./middle.sh pg42671.txt 20 5
     ```
 Explain the output. Explain the meaning of `"$1"`, `"$2"`, and `"$3"` in this shell script. Why do we need the first line of the shell script?
 
-### Q4. More fun with Linux
+### Q5. More fun with Linux
 
-Try these commands in Bash and interpret the results: `cal`, `cal 2021`, `cal 9 1752` (anything unusual?), `date`, `hostname`, `arch`, `uname -a`, `uptime`, `who am i`, `who`, `w`, `id`, `last | head`, `echo {con,pre}{sent,fer}{s,ed}`, `time sleep 5`, `history | tail`.
+Try following commands in Bash and interpret the results: `cal`, `cal 2021`, `cal 9 1752` (anything unusual?), `date`, `hostname`, `arch`, `uname -a`, `uptime`, `who am i`, `who`, `w`, `id`, `last | head`, `echo {con,pre}{sent,fer}{s,ed}`, `time sleep 5`, `history | tail`.
