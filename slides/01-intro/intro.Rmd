@@ -67,7 +67,7 @@ A position posted by Genetech.
   <img src="./genetech.png" height="450" width="700">
 </p>
 
-## Course desciption
+## Course description
 
 - This course introduces some computing skills and software tools for handling potentially big public health data.
 
