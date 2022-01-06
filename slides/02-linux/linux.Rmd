@@ -63,10 +63,12 @@ Linux is _the_ most common platform for scientific computing and deployment of d
 
 - Show distribution/version on MacOS:
     ```{bash, eval=FALSE}
+    # only on Mac terminal
     sw_vers -productVersion
     ```
 or
     ```{bash, eval=FALSE}
+    # only on Mac terminal
     system_profiler SPSoftwareDataType
     ```
 
@@ -102,7 +104,7 @@ The `-l` option indicates it should be a login shell.
 
 - Change your login shell permanently:
     ```{bash, eval=FALSE}
-    chsh -s /bin/bash userid
+    chsh -s /bin/bash [USERNAME]
     ```
 Then log out and log in.
 
@@ -207,7 +209,7 @@ man ls
 
 - `chmod 751 file` sets permission `rwxr-x--x` to a file.
 
-- `groups userid` shows which group(s) a user belongs to:
+- `groups [USERNAME]` shows which group(s) a user belongs to:
     ```{bash}
     groups huazhou
     ```
