@@ -407,10 +407,10 @@ or (not displaying file name)
 
 - Print login names with UID in range `1000-1035`:
     ```{bash}
-    awk -F: '{if ($3 >= 1000 && $3 <= 1035) print}' /etc/passwd
+    awk -F: '{if ($3 >= 1000 && $3 <= 1047) print}' /etc/passwd
     ```
     
-- Print login names and log-in shells in comma-seperated format:
+- Print login names and log-in shells in comma-separated format:
     ```{bash}
     awk -F: '{OFS = ","} {print $1, $7}' /etc/passwd
     ```
