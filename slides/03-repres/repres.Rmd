@@ -31,7 +31,7 @@ bibliography: ../bib-HZ.bib
 
 - @BaggerlyCoombes09: <https://projecteuclid.org/euclid.aoas/1267453942>
 
-- [Simply Statistics Blog: The Duke Saga Starter Set](https://simplystatistics.org/2012/02/27/the-duke-saga-starter-set/)
+- [Simply Statistics Blog: The Duke Saga Starter Set](https://simplystatistics.org/posts/2012-02-27-the-duke-saga-starter-set/)
 
    
 ### Microarray studies
