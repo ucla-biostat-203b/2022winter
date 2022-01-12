@@ -162,11 +162,11 @@ Name and email appear in each commit you make.
 
 - Initialize a project.
 
-    - Create a repository, e.g., `biostat-203b-2021-winter` on GitHub.
+    - Create a repository, e.g., `biostat-203b-2022-winter` on GitHub.
     
     - Clone the repository to your local machine:
     ```{bash, eval=FALSE}
-    git clone git@github.com:[USERNAME]/biostat-203b-2021-winter.git
+    git clone git@github.com:[USERNAME]/biostat-203b-2022-winter.git
     ```
 
 - Working with your local copy.
@@ -229,7 +229,7 @@ On [GitHub.com](https://github.com):
 
 - Obtain [Student Developer Pack](https://education.github.com/pack).
 
-- Create a private repository `biostat-203b-2021-winter`. Add `Hua-Zhou`, `Chris-German` and `ElvisHanCui` as your collaborators with write permission.
+- Create a private repository `biostat-203b-2022-winter`. Add `Hua-Zhou` and `maschepps` as your collaborators with write permission.
 
 On your local machine: 
 
@@ -237,9 +237,9 @@ On your local machine:
 
     ```{bash, eval=FALSE}
     # clone the project
-    git clone git@github.com:biostat-203b-2021-winter.git
+    git clone git@github.com:[USERNAME]/biostat-203b-2022-winter.git
     # enter project folder
-    cd biostat-203b-2021-winter
+    cd biostat-203b-2022-winter
     # what branches are there?
     git branch
     # create develop branch
