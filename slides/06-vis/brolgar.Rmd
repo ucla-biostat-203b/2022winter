@@ -1,7 +1,7 @@
 ---
 title: "Visualizing Longitudinal Data Using brolgar"
 author: "Dr. Hua Zhou @ UCLA"
-date: "Jan 26, 2021"
+date: "Jan 20, 2022"
 subtitle: Biostat 203B
 output:
   # ioslides_presentation: default
@@ -35,7 +35,7 @@ library(brolgar)
 library(gghighlight)
 ```
 
-The csv file `wages_pp.csv` contains a data set from the textbook _Applied Longitudical Data Analysis_ (2003) by Singer and Willett. This data contains measurements on hourly wages by years in the workforce, with education and race as covariates. 
+The csv file `wages_pp.csv` contains a data set from the textbook _Applied Longitudinal Data Analysis_ (2003) by Singer and Willett. This data contains measurements on hourly wages by years in the workforce, with education and race as covariates. 
 ```{bash}
 head wages_pp.csv
 ```
@@ -63,10 +63,8 @@ We turn a regular data frame/tibble into a tidy time series data frame `tsibble`
 3. The **regularity** of the time interveral (index). Longitudinal data typically has irregular time periods between measurements, but can have regular measurements.
 
 ```{r}
-wages <- as_tsibble(x = wages,
-                    key = id,
-                    index = exper,
-                    regular = FALSE)
+wages <- wages %>% 
+  as_tsibble(key = id, index = exper, regular = FALSE)
 wages
 ```
 
