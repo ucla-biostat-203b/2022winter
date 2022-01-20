@@ -537,7 +537,7 @@ automatically adds scales
 
 ## Zooming
 
-- Without clipping (removes unseen data points)
+- Without clipping (calculate smoothing line using all data points)
     ```{r, message = FALSE}
     ggplot(mpg, mapping = aes(displ, hwy)) +
       geom_point(aes(color = class)) +
@@ -547,7 +547,7 @@ automatically adds scales
 
 ----
 
-- With clipping (removes unseen data points)
+- With clipping (calculate smoothing line ignoring unseen data points)
     ```{r, message = FALSE, warning = FALSE}
     ggplot(mpg, mapping = aes(displ, hwy)) +
       geom_point(aes(color = class)) +
@@ -655,4 +655,4 @@ ggsave("my-plot.pdf")
 
 # Cheat sheet  
 
-[RStudio cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf) is extremely helpful.
+[RStudio cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/data-visualization.pdf) is extremely helpful.
