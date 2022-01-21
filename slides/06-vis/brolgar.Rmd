@@ -18,7 +18,7 @@ Adapted form the tutorial at <http://brolgar.njtierney.com>.
 
 ## Longitudinal data
 
-[broglar](http://brolgar.njtierney.com) is an R package that helps **br**owse **o**ver **l**ongitudinal **d**ata **g**raphically and **a**nalytically in **R**.
+[brolgar](http://brolgar.njtierney.com) is an R package that helps **br**owse **o**ver **l**ongitudinal **d**ata **g**raphically and **a**nalytically in **R**.
 
 ## Installing `brolgar`
 
