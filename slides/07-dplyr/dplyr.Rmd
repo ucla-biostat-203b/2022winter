@@ -37,7 +37,7 @@ A typical data science project:
     ```{r}
     flights %>% print(n = 20)
     ```
-  Note `%>%` is the pipe is tidyverse. Above command is equivalent to `print(flights, n = 20)`.
+  Note `%>%` is the pipe in tidyverse. Above command is equivalent to `print(flights, n = 20)`.
 
 - To display all rows:
     ```{r, eval = FALSE}
