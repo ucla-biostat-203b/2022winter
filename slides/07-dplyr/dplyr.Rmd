@@ -113,18 +113,36 @@ A typical data science project:
     slice(flights, 1:5)
     ```
 
+- First rows:
+    ```{r}
+    slice_head(flights, n = 5)
+    ```
+    
+- Last rows:
+    ```{r}
+    slice_tail(flights, n = 5)
+    ```
+
 ----
 
-- Top `n` rows:
+- Top `n` rows with the highest values:
     ```{r}
-    top_n(flights, 5)
+    # deprecated: top_n(flights, 5, wt = time_hour)
+    # This function is quick
+    slice_max(flights, n = 5, order_by = time_hour)
     ```
-    Use `wt` argument to specify using which varible to order. Default is the last argument.
-    
-- Bottome `n` rows:
-    ```{r}
-    top_n(flights, -5)
+
+- Bottom `n` rows with lowest values:
+    ```{r, eval=F}
+    # deprecated: top_n(flights, -5, wt = time_hour)
+    # Why it takes REALLY long???
+    # slice_max(flights, n = 5, order_by = desc(time_hour)) is fast
+    slice_min(flights, n = 5, order_by = time_hour)
     ```
+
+----
+
+- `slice_*` verbs apply to groups for grouped tibbles.
 
 ## Arrange rows with `arrange()`
 
@@ -140,11 +158,15 @@ A typical data science project:
     arrange(flights, desc(arr_delay))
     ```
 
+----
+
+- By default, `arrange` ignores grouping in grouped tibbles. Set `.by_group = TRUE` to arrange within each group.
+
 # Manipulate columns (variables)
 
 ## Select columns with `select()`
 
-- Select columns by variable name:
+- Select columns by variable names:
     ```{r}
     select(flights, year, month, day)
     ```
@@ -178,7 +200,7 @@ A typical data science project:
 ----
 
 - Move variables to the start of data frame:
-    ```{r, }
+    ```{r}
     select(flights, time_hour, air_time, everything())
     ```
 
@@ -242,7 +264,7 @@ A typical data science project:
     mutate_all(data, funs(log(.), log2(.)))
     ```
 
-- `mutate_at()`: apply funs to specifc columns.
+- `mutate_at()`: apply funs to specific columns.
     ```{r, eval = FALSE}
     mutate_at(data, vars(-Species), funs(log(.)))
     ```
@@ -277,7 +299,7 @@ A typical data science project:
 
 ## Pipe
 
-- Consider following analysis:
+- Consider following analysis (find destinations excluding `HNL` that have >20 flights, and calculate the average distances and arrival delay):
     ```{r, message = FALSE}
     by_dest <- group_by(flights, dest)
     delay <- summarise(by_dest, count = n(),
@@ -310,14 +332,17 @@ A typical data science project:
     delays %>%
       ggplot(mapping = aes(x = dist, y = delay)) +
       geom_point(aes(size = count), alpha = 1/3) + 
-      geom_smooth(se = FALSE)
+      geom_smooth(se = FALSE) + 
+      labs(x = "Distance from NYC (miles)",
+           y = "Arrival delay (mins)")
     ```
 
 ## Other summary functions
 
 - Location: `mean(x)`, `median(x)`.
     ```{r}
-    not_cancelled <- flights %>% filter(!is.na(dep_delay), !is.na(arr_delay))
+    not_cancelled <- flights %>% 
+      filter(!is.na(dep_delay), !is.na(arr_delay))
     not_cancelled
     ```
     ```{r}
@@ -333,6 +358,7 @@ A typical data science project:
 
 - Spread: `sd(x)`, `IQR(x)`, `mad(x)`.
     ```{r}
+    # destinations with largest variation in distance
     not_cancelled %>% 
       group_by(dest) %>% 
       summarise(distance_sd = sd(distance)) %>% 
@@ -343,7 +369,7 @@ A typical data science project:
     
 - Rank: `min(x)`, `quantile(x, 0.25)`, `max(x)`.
     ```{r}
-    # When do the first and last flights leave each day?
+    # Earliest and latest flights on each day?
     not_cancelled %>% 
       group_by(year, month, day) %>% 
       summarise(
@@ -379,16 +405,20 @@ A typical data science project:
 
 - 
     ```{r}
+    # which destination has most flights from NYC?
     not_cancelled %>% 
-      count(dest)
+      count(dest) %>%
+      arrange(desc(n))
     ```
 
 ---- 
 
 - 
     ```{r}
+    # which aircraft flew most in 2013?
     not_cancelled %>% 
-      count(tailnum, wt = distance)
+      count(tailnum, wt = distance) %>%
+      arrange(desc(n))
     ```
 
 ----
@@ -399,7 +429,8 @@ A typical data science project:
     # flights from the previous day)
     not_cancelled %>% 
       group_by(year, month, day) %>% 
-      summarise(n_early = sum(dep_time < 500))
+      summarise(n_early = sum(dep_time < 500)) %>%
+      arrange(desc(n_early))
     ```
 
 ----
@@ -409,7 +440,8 @@ A typical data science project:
     # What proportion of flights are delayed by more than an hour?
     not_cancelled %>% 
       group_by(year, month, day) %>% 
-      summarise(hour_perc = mean(arr_delay > 60))
+      summarise(hour_perc = mean(arr_delay > 60)) %>%
+      arrange(desc(hour_perc))
     ```
 
 ## Grouped mutates (and filters)
@@ -479,7 +511,8 @@ nycflights13 package has >1 tables:
 
 - Weather:
     ```{r}
-    weather
+    weather %>%
+      print(width = Inf)
     ```
 
 ## Relational data
@@ -488,7 +521,7 @@ nycflights13 package has >1 tables:
 <img src="./relational-nycflights.png" height="375">
 </p>
 
-For the MIMIC-III data, the relation structure can be explored at <https://mit-lcp.github.io/mimic-schema-spy/>.
+For the MIMIC-III data, the relation structure can be explored at <https://mit-lcp.github.io/mimic-schema-spy/relationships.html>.
 
 ## Keys
 
@@ -676,8 +709,6 @@ Same as
     <img src="./join-semi.png" height="200">
     </p>
 
-- Useful to see what will be joined.
-
 ----
 
 -
@@ -753,4 +784,4 @@ Same as
     
 # Cheat sheet  
 
-[RStudio cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf) is extremely helpful.    
+[RStudio cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf) is extremely helpful.    
