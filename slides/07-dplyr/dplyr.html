@@ -535,7 +535,7 @@ slice_max(flights, n = 5, order_by = time_hour)</code></pre>
 <li><p>Bottom <code>n</code> rows with lowest values:</p>
 <pre class="r"><code># deprecated: top_n(flights, -5, wt = time_hour)
 # Why it takes REALLY long???
-# slice_max(flights, n = 5, order_by = desc(time_hour)) is fast
+# slice_max(flights, n = 5, order_by = desc(time_hour)) # is fast
 slice_min(flights, n = 5, order_by = time_hour)</code></pre></li>
 </ul>
 <hr />
@@ -568,7 +568,8 @@ slice_min(flights, n = 5, order_by = time_hour)</code></pre></li>
 <hr />
 <ul>
 <li><p>Sort in descending order:</p>
-<pre class="r"><code>arrange(flights, desc(arr_delay))</code></pre>
+<pre class="r"><code>arrange(flights, desc(arr_delay)) %&gt;%
+  print(width = Inf)</code></pre>
 <pre><code>## # A tibble: 336,776 × 19
 ##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time
 ##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;
@@ -582,9 +583,31 @@ slice_min(flights, n = 5, order_by = time_hour)</code></pre></li>
 ##  8  2013     7    22     2257            759       898      121           1026
 ##  9  2013    12     5      756           1700       896     1058           2020
 ## 10  2013     5     3     1133           2055       878     1250           2215
-## # … with 336,766 more rows, and 11 more variables: arr_delay &lt;dbl&gt;,
-## #   carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;,
-## #   air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</code></pre></li>
+##    arr_delay carrier flight tailnum origin dest  air_time distance  hour minute
+##        &lt;dbl&gt; &lt;chr&gt;    &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1      1272 HA          51 N384HA  JFK    HNL        640     4983     9      0
+##  2      1127 MQ        3535 N504MQ  JFK    CMH         74      483    19     35
+##  3      1109 MQ        3695 N517MQ  EWR    ORD        111      719    16     35
+##  4      1007 AA         177 N338AA  JFK    SFO        354     2586    18     45
+##  5       989 MQ        3075 N665MQ  JFK    CVG         96      589    16      0
+##  6       931 DL        2391 N959DL  JFK    TPA        139     1005    19      0
+##  7       915 DL        2119 N927DA  LGA    MSP        167     1020     8     10
+##  8       895 DL        2047 N6716C  LGA    ATL        109      762     7     59
+##  9       878 AA         172 N5DMAA  EWR    MIA        149     1085    17      0
+## 10       875 MQ        3744 N523MQ  EWR    ORD        112      719    20     55
+##    time_hour          
+##    &lt;dttm&gt;             
+##  1 2013-01-09 09:00:00
+##  2 2013-06-15 19:00:00
+##  3 2013-01-10 16:00:00
+##  4 2013-09-20 18:00:00
+##  5 2013-07-22 16:00:00
+##  6 2013-04-10 19:00:00
+##  7 2013-03-17 08:00:00
+##  8 2013-07-22 07:00:00
+##  9 2013-12-05 17:00:00
+## 10 2013-05-03 20:00:00
+## # … with 336,766 more rows</code></pre></li>
 </ul>
 <hr />
 <ul>
@@ -1233,9 +1256,10 @@ not_cancelled %&gt;%
 <ul>
 <li><p>Standardise to compute per group metrics:</p>
 <pre class="r"><code>popular_dests %&gt;% 
-  filter(arr_delay &gt; 0) %&gt;% 
-  mutate(prop_delay = arr_delay / sum(arr_delay)) %&gt;% 
-  select(year:day, dest, arr_delay, prop_delay)</code></pre>
+  filter(arr_delay &gt; 0) %&gt;%
+  mutate(prop_delay = arr_delay / sum(arr_delay)) %&gt;%
+  select(year:day, dest, arr_delay, prop_delay) %&gt;%
+  print(width = Inf)</code></pre>
 <pre><code>## # A tibble: 131,106 × 6
 ## # Groups:   dest [77]
 ##     year month   day dest  arr_delay prop_delay

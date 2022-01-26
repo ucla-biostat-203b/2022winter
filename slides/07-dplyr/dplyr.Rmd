@@ -136,7 +136,7 @@ A typical data science project:
     ```{r, eval=F}
     # deprecated: top_n(flights, -5, wt = time_hour)
     # Why it takes REALLY long???
-    # slice_max(flights, n = 5, order_by = desc(time_hour)) is fast
+    # slice_max(flights, n = 5, order_by = desc(time_hour)) # is fast
     slice_min(flights, n = 5, order_by = time_hour)
     ```
 
@@ -155,7 +155,8 @@ A typical data science project:
 
 - Sort in descending order:
     ```{r}
-    arrange(flights, desc(arr_delay))
+    arrange(flights, desc(arr_delay)) %>%
+      print(width = Inf)
     ```
 
 ----
@@ -472,9 +473,10 @@ A typical data science project:
 - Standardise to compute per group metrics:
     ```{r}
     popular_dests %>% 
-      filter(arr_delay > 0) %>% 
-      mutate(prop_delay = arr_delay / sum(arr_delay)) %>% 
-      select(year:day, dest, arr_delay, prop_delay)
+      filter(arr_delay > 0) %>%
+      mutate(prop_delay = arr_delay / sum(arr_delay)) %>%
+      select(year:day, dest, arr_delay, prop_delay) %>%
+      print(width = Inf)
     ```
 
 # Combine tables
