@@ -1,0 +1,113 @@
+---
+title: "Biostat 203B HW2"
+subtitle: Subset Big Data Files
+author: Hua Zhou
+output: 
+  html_document:
+    toc: true
+    toc_depth: 4 
+---
+
+Display machine information for reproducibility:
+```{r}
+sessionInfo()
+```
+
+```{r setup, message=F}
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE, cache.lazy = FALSE)
+library(tidyverse)
+library(data.table)
+library(lubridate)
+```
+
+```{r}
+os <- sessionInfo()$running
+if (str_detect(os, "Linux")) {
+  mimic_path <- "/mnt/mimiciv/1.0"
+} else if (str_detect(os, "macOS")) {
+  mimic_path <- "/Users/huazhou/Documents/Box Sync/MIMIC/mimic-iv-1.0"
+}
+```
+
+The two data files `labevents.csv.gz` and `chartevents.csv.gz` are too big to work with. Let's retrieve a subset of these two files, which is 
+
+```{r}
+# tree -s -L 2 /Users/huazhou/Documents/Box\ Sync/MIMIC/mimic-iv-1.0
+system(str_c("tree -s -L 2 ", shQuote(mimic_path)), intern = TRUE)
+```
+
+## Lab events
+
+We can subset the original data file by the bash command `awk`. 
+```{r}
+fn <- shQuote(str_c(mimic_path, "/hosp/labevents.csv.gz"))
+cmd <- str_c(
+  "zcat < ",
+  fn,
+  " | ",
+  "awk -F, '{OFS = \",\"} {if ($5 == 50912 || $5 == 50971 || $5 == 50983 || $5 == 50902 || $5 == 50882 || $5 == 51221 || $5 == 51301 || $5 == 50931 || $5 == 50960 || $5 == 50893 || $5 == \"itemid\") print $2,$5,$6,$9}' | ",
+  "gzip > labevents_filtered_itemid.csv.gz"
+  )
+cmd
+```
+
+This method is memory efficient and takes about 900 seconds.
+```{r, eval=F}
+system.time(
+  system(cmd, intern = TRUE)
+)
+```
+
+```{bash}
+zcat < labevents_filtered_itemid.csv.gz | head -20
+```
+
+Importing the subset file by readr:
+```{r}
+system.time(
+  read_csv(
+    "labevents_filtered_itemid.csv.gz",
+    # col_types = cols_only(
+    #   subject_id = col_double(), 
+    #   itemid = col_double(), 
+    #   charttime = col_datetime(), 
+    #   valuenum = col_double())
+  ) %>%
+    print(width = Inf)
+)
+```
+
+## Chart events
+
+We can subset the original data file by the bash command `awk`. 
+```{r}
+fn <- shQuote(str_c(mimic_path, "/icu/chartevents.csv.gz"))
+cmd <- str_c(
+  "zcat < ",
+  fn,
+  " | ",
+  "awk -F, '{OFS = \",\"} {if ($6 == 220045 || $6 == 220181 || $6 == 220179 || $6 == 223761 || $6 == 220210 || $6 == \"itemid\") print $1,$2,$3,$4,$6,$8}' | ",
+  "gzip > chartevents_filtered_itemid.csv.gz"
+  )
+cmd
+```
+
+This method is memory efficient and takes about 1866 seconds.
+```{r, eval=F}
+system.time(
+  system(cmd, intern = TRUE)
+)
+```
+
+```{bash}
+zcat < chartevents_filtered_itemid.csv.gz | head -20
+```
+
+Importing the subset file by readr:
+```{r}
+system.time(
+  read_csv("chartevents_filtered_itemid.csv.gz") %>%
+    print(width = Inf)
+)
+```
+
