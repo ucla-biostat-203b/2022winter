@@ -56,3 +56,6 @@ ggplot2_files/
 dplyr_files/
 
 # SQLite databases
+
+# Jupyter notebook
+.ipynb_checkpoints/
