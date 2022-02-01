@@ -16,9 +16,11 @@ knitr::opts_chunk$set(fig.width=5, fig.height=3.5, fig.align='center', cache=FAL
 
 # String | r4ds chapter 14
 
+We encounter text data often: sentiment analysis, electronic health records (doctor notes), twitter data, websites, ...
+
 ## stringr
 
-- stringr pacakge, by Hadley Wickham et al, provides utilities for handling strings.
+- stringr package, by Hadley Wickham et al, provides utilities for handling strings.
 
 - Included in tidyverse.
     ```{r}
@@ -38,7 +40,6 @@ knitr::opts_chunk$set(fig.width=5, fig.height=3.5, fig.align='center', cache=FAL
     - `str_replace(string, pattern, replacement)`: Replace the first matched pattern and returns a character vector.
     
 - Variants with an `_all` suffix will match more than 1 occurrence of the pattern in a given string.  
-
 - Most functions are vectorized.
 
 ## Basics
@@ -62,7 +63,7 @@ knitr::opts_chunk$set(fig.width=5, fig.height=3.5, fig.align='center', cache=FAL
     x <- c("\"", "\\")
     x
     ```
-vs `cat`:    
+vs `cat` (how R views your string after all special characters have been parsed):    
     ```{r}
     cat(x)
     ```
@@ -134,7 +135,10 @@ for a complete list.
     birthday <- FALSE
     
     str_c(
-      "Good ", time_of_day, " ", name,
+      "Good ", 
+      time_of_day, 
+      " ", 
+      name,
       if (birthday) " and HAPPY BIRTHDAY",
       "."
     )
@@ -144,8 +148,12 @@ for a complete list.
 
 - Combine a vector of strings:
     ```{r}
+    # this is not collapsing
     str_c(c("x", "y", "z"))
+    # collapse
     str_c(c("x", "y", "z"), collapse = ", ")
+    # equivalently
+    str_flatten(c("x", "y", "z"), collapse = ", ")
     ```
     
 ## Subsetting strings
@@ -153,6 +161,7 @@ for a complete list.
 - By position:
     ```{r}
     str_sub("Apple", 1, 3)
+    # vectorized
     x <- c("Apple", "Banana", "Pear")
     str_sub(x, 1, 3)
     ```
@@ -241,11 +250,11 @@ for a complete list.
     str_view(x, "^apple$")
     ```
 
-----
+## Alternation  
 
-- Alternation  
-    - `[abc]`: matches a, b, or c. Same as `(a|b|c)`.
-    - `[^abc]`: matches anything except a, b, or c.
+- `[abc]`: matches a, b, or c. Same as `(a|b|c)`.
+
+- `[^abc]`: matches anything except a, b, or c.
     ```{r}
     str_view(c("grey", "gray"), "gr(e|a)y")
     ```
@@ -381,7 +390,7 @@ same as
       i = seq_along(word)
     )
     df %>% 
-      filter(str_detect(words, "x$"))
+      filter(str_detect(word, "x$"))
     ```
 
 ----
