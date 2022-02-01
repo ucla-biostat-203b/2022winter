@@ -133,7 +133,7 @@ Shiny app is a standalone app.
     runApp("census-app")
     ```
 
-- [Code](https://github.com/ucla-biostat203b-2021winter/ucla-biostat203b-2021winter.github.io/tree/main/slides/11-shiny/census-app) for the Shiny app `census-app`.
+- [Code](https://github.com/ucla-biostat-203b/2022winter/tree/main/slides/11-shiny/census-app) for the Shiny app `census-app`.
 
 ----
 
@@ -147,7 +147,7 @@ Shiny app is a standalone app.
 
 - This example is from tutorial: <http://shiny.rstudio.com/tutorial/written-tutorial/lesson6/>
 
-- [Code](https://github.com/ucla-biostat203b-2021winter/ucla-biostat203b-2021winter.github.io/tree/main/slides/11-shiny/stockVis) for the Shiny app `stockVis`.
+- [Code](https://github.com/ucla-biostat-203b/2022winter/tree/main/slides/11-shiny/stockVis) for the Shiny app `stockVis`.
 
 ---
 
