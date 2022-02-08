@@ -10,6 +10,8 @@ title: Biostat 203B
 Tue (lecture) 3pm-5:50pm @ Zoom <https://ucla.zoom.us/j/99440334928>   
 Thu (lab) 3pm-4:50pm @ Zoom <https://ucla.zoom.us/j/99440334928>   
 
+Starting Feb 15, 2022, lectures will be in-person at CHS 13-105A. 
+
 ## Instructor
 
 [Dr. Hua Zhou](http://hua-zhou.github.io/)  
