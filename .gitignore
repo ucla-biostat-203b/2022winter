@@ -56,6 +56,11 @@ ggplot2_files/
 dplyr_files/
 
 # SQLite databases
+.sqlite
 
 # Jupyter notebook
 .ipynb_checkpoints/
+
+# Spark
+derby.log
+logs/
