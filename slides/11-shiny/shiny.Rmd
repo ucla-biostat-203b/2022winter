@@ -63,7 +63,7 @@ renderPlot({
 
 ----
 
-- Check the [Shiny cheat sheet](https://github.com/rstudio/cheatsheets/raw/master/shiny.pdf) for a list of inputs and outputs.
+- Check the [Shiny cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/shiny.pdf) for a list of inputs and outputs.
 
 ## Building a Shiny app
 
