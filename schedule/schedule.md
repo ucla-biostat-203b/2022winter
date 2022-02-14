@@ -11,7 +11,7 @@ Mandatory daily symptom monitoring survey: <https://uclasurveys.co1.qualtrics.co
 
 Zoom link: <https://ucla.zoom.us/j/99440334928>
 
-From Feb 15, 2022, lectures will be in-person at CHS 13-105A. 
+From Feb 15, 2022, lectures will be in-person at CHS 13-105A (Tuesday) and CHS 23-105A (Thursday). 
 
 CCLE site: <https://ccle.ucla.edu/course/view/22W-BIOSTAT203B-1>
 
