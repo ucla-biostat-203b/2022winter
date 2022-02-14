@@ -40,4 +40,4 @@ Recommended readings:
 | 7 | [2/15](http://ucla-biostat-203b.github.io/2022winter/biostat203bwinter2022/2022/02/15/week7-day1.html) cloud computing with GCP \[slides: [Rmd](https://raw.githubusercontent.com/ucla-biostat-203b/2022winter/main/slides/13-gcp/gcp.Rmd), [html](../slides/13-gcp/gcp.html)\] | 2/17 cluster computing at UCLA [tutorial](https://github.com/chris-german/Hoffman2Tutorials) | |   
 | 8 | 2/22 neural network intro., neural network examples | 2/24 Lab | HW4 |    
 | 9 | 3/1 Data Scientist Panel Discussion (FB, Ancestry.com), [ASA Data Science Career Q&A for Undergraduates](https://www.youtube.com/watch?v=Nd3fvAILfMk) | 3/3 Lab | |   
-| 10 | 3/8 Docker | 3/10 R programming (benchmark, debug, profile), Rcpp, parallel computing, R package | | 
+| 10 | 3/8 R programming (benchmark, debug, profile), Rcpp, parallel computing, R package, GPGPU in R | 3/10 Docker | | 
