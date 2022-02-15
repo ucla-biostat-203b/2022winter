@@ -67,7 +67,7 @@ system(str_c("tree -s -L 2 ", shQuote(mimic_path)), intern = TRUE)
 
 ## Read CSVs and deposit to an SQLite database
 
-Here, we will one csv file `icustays.csv.gz` for demonstration purpose. Motivated students can write a bash script for loading all MIMIC-IV datafiles into a SQLite database and contribute to <https://github.com/MIT-LCP/mimic-iv>.
+Here, we will import only one csv file `icustays.csv.gz` for demonstration purpose. Motivated students can write a bash script for loading all MIMIC-IV datafiles into a SQLite database and contribute to <https://github.com/MIT-LCP/mimic-iv>.
 
 Create an empty database file `mimiciv.sqlite`:
 ```{r}
