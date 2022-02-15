@@ -74,11 +74,10 @@ for around $0.27 an hour.
 ## Vendors
 
 <p align="center">
-<img src="./cloud-market-share.jpg" height="350">
+<img src="./cloud-market-share.png" height="350">
 </p>
 
 There are many vendors out there. Good for customers (us). They all work similarly.  
-
 - Amazon web services (AWS).  
 
 - Google cloud platform (GCP).
