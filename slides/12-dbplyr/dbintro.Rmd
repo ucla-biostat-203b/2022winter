@@ -211,6 +211,10 @@ dbListTables(con)
 ```{r}
 # select all columns from table employees
 res <- dbSendQuery(con, "SELECT * FROM employees")
+res
+```
+
+```{r}
 # execute the query
 dbFetch(res)
 dbClearResult(res)

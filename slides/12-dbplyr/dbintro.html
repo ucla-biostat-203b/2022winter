@@ -391,7 +391,7 @@ str(con)</code></pre>
 ##   ..@ loadable.extensions: logi TRUE
 ##   ..@ flags              : int 70
 ##   ..@ vfs                : chr &quot;&quot;
-##   ..@ ref                :&lt;environment: 0x7fb385e59ac0&gt; 
+##   ..@ ref                :&lt;environment: 0x7fe5d7123700&gt; 
 ##   ..@ bigint             : chr &quot;integer64&quot;
 ##   ..@ extended_types     : logi FALSE</code></pre>
 </div>
@@ -455,7 +455,12 @@ dbListTables(con)</code></pre>
 <h2>Querying tables</h2>
 <pre class="r"><code># select all columns from table employees
 res &lt;- dbSendQuery(con, &quot;SELECT * FROM employees&quot;)
-# execute the query
+res</code></pre>
+<pre><code>## &lt;SQLiteResult&gt;
+##   SQL  SELECT * FROM employees
+##   ROWS Fetched: 0 [incomplete]
+##        Changed: 0</code></pre>
+<pre class="r"><code># execute the query
 dbFetch(res)</code></pre>
 <pre><code>##    name             email salary       dept
 ## 1 Alice alice@company.com  52000 Accounting
