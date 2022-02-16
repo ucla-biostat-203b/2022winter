@@ -309,7 +309,7 @@ mimic_path</code></pre>
 </div>
 <div id="read-csvs-and-deposit-to-an-sqlite-database" class="section level2">
 <h2>Read CSVs and deposit to an SQLite database</h2>
-<p>Here, we will import only one csv file <code>icustays.csv.gz</code> for demonstration purpose. Motivated students can write a bash script for loading all MIMIC-IV datafiles into a SQLite database and contribute to <a href="https://github.com/MIT-LCP/mimic-iv" class="uri">https://github.com/MIT-LCP/mimic-iv</a>.</p>
+<p>Here, we will import only one csv file <code>icustays.csv.gz</code> for demonstration purpose. Motivated students can write a bash script for loading all MIMIC-IV data files into a SQLite database and contribute to <a href="https://github.com/MIT-LCP/mimic-code" class="uri">https://github.com/MIT-LCP/mimic-code</a>.</p>
 <p>Create an empty database file <code>mimiciv.sqlite</code>:</p>
 <pre class="r"><code>cmd &lt;- &#39;touch mimiciv.sqlite&#39;
 system(cmd, intern = TRUE)</code></pre>
@@ -531,7 +531,7 @@ icustays_tibble &lt;- read_csv(csvfile)</code></pre>
 )
 timing_tibble</code></pre>
 <pre><code>##    user  system elapsed 
-##   0.769   0.000   0.769</code></pre>
+##   1.442   0.001   1.444</code></pre>
 <ul>
 <li>dbplyr using SQLite:</li>
 </ul>
@@ -543,8 +543,8 @@ timing_sql &lt;- system.time(
 )
 timing_sql</code></pre>
 <pre><code>##    user  system elapsed 
-##   0.002   0.000   0.001</code></pre>
-<p>SQLite (0.001 seconds) was much faster than tibble (0.769 seconds). But SQLite is disk-based, while the tibble is in memory. Why is the discrepancy?</p>
+##   0.002   0.000   0.002</code></pre>
+<p>SQLite (0.002 seconds) was much faster than tibble (1.444 seconds). But SQLite is disk-based, while the tibble is in memory. Why is the discrepancy?</p>
 </div>
 <div id="laziness" class="section level2">
 <h2>Laziness</h2>
@@ -588,7 +588,7 @@ timing_sql</code></pre>
     collect()
 )</code></pre>
 <pre><code>##    user  system elapsed 
-##   0.092   0.014   0.106</code></pre>
+##   0.124   0.028   0.153</code></pre>
 </div>
 <div id="old-ggplot2-doesnt-do-transform-in-database-plot-in-r" class="section level2">
 <h2>Old ggplot2 doesn’t do ``Transform in database, plot in R”</h2>
