@@ -10,7 +10,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 ```
 
 ```{r}
@@ -122,5 +122,6 @@ cat('Test loss:', scores[[1]], '\n')
 cat('Test accuracy:', scores[[2]], '\n')
 ```
 
-## Train and evaluate (on GCP ML Engine)
+## Train and evaluate (using GPU)
 
+On a machine with a single GPU NVIDIA GeForce RTX 2080 Ti (11GB GDDR6, 4352 cores), the time for training process is reduced to 51 seconds. 
