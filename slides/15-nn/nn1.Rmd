@@ -31,7 +31,13 @@ From [Wang and Raj (2017)](https://arxiv.org/pdf/1702.07800.pdf):
 
 The current AI wave came in 2012 when AlexNet (60 million parameters) cuts the error rate of ImageNet competition (classify 1.2 million natural images) by half.
 
+<p align="center">
+![](./nn_history_diagram.png){width=750px}
+</p>
+
 ## Learning sources
+
+This lecture draws heavily on following sources.
 
 - _Elements of Statistical Learning_ (ESL) Chapter 11: <https://web.stanford.edu/~hastie/ElemStatLearn/>.
 
@@ -40,6 +46,8 @@ The current AI wave came in 2012 when AlexNet (60 million parameters) cuts the e
 - Stanford CS231n: <http://cs231n.github.io>.
 
 - _On the origin of deep learning_ by Wang and Raj (2017): <https://arxiv.org/pdf/1702.07800.pdf>
+
+- _Learning Deep Learning_ lectures by Dr. Qiyang Hu (UCLA Office of Advanced Research Computing): <https://github.com/huqy/deep_learning_workshops>
 
 ## Single layer neural network (SLP)
 
@@ -50,6 +58,13 @@ The current AI wave came in 2012 when AlexNet (60 million parameters) cuts the e
 <p align="center">
 ![](./esl-fig-11-2.png){width=500px}
 </p>
+
+- Inspired by the biological neuron model.
+
+<p align="center">
+![](./mcp_neuron_model.png){width=500px}
+</p>
+
 
 - Mathematical model:
 \begin{eqnarray*}
@@ -209,7 +224,7 @@ $$
 
 ## Universal approximation properties
 
-- Boolean Approximation: an MLP of one hidden layer can represent any boolean function exactly.
+- Boolean Approximation: an MLP of one hidden layer can represent any Boolean function exactly.
 
 - Continuous Approximation: an MLP of one hidden layer can approximate any bounded continuous function with arbitrary accuracy.
 
@@ -260,13 +275,16 @@ Sources: <https://colah.github.io/posts/2014-07-Conv-Nets-Modular/>
 ![](./ufldl-convolution-schematic.gif){width=400px}
 </p>
 
-    Consider $96 \times 96$ images. For each feature, first learn a $8 \times 8$ **feature detector** (or **filter** or **kernel**) from (possibly randomly sampled) $8 \times 8$ patches from the larger image. Then apply the learned detector to all $8 \times 8$ regions of the $96 \times 96$ image to obtain one $89 \times 89$ convolved feature for that feature. 
+    Consider $96 \times 96$ images. For each feature, first learn a $8 \times 8$ **feature detector** (or **filter** or **kernel**) from (possibly randomly sampled) $8 \times 8$ patches from the larger image. Then apply the learned detector to all $8 \times 8$ regions of the $96 \times 96$ image to obtain one $89 \times 89$ convolved feature for that feature.  
     
-    From [Wang and Raj (2017)](https://arxiv.org/pdf/1702.07800.pdf):  
-    <p align="center">
-    ![](./conv-bridge.png){width=700px}
-    </p>
-    
+    Interactive visualization: <https://setosa.io/ev/image-kernels/>
+
+- Multiple channels (color image) and multiple filters.
+
+<p align="center">
+![](./convolution-with-multiple-filters2.png){width=400px}
+</p>
+Source: <https://indoml.com/2018/03/07/student-notes-convolutional-neural-networks-cnn-introduction/>
 
 - **Pooling**. For a neural network with 100 hidden units, we have $89^2 \times 100 = 792,100$ convolved features. This can be reduced by calculating the mean (or max) value of a particular feature over a region of the image. These summary statistics are much lower in dimension (compared to using all of the extracted features) and can also improve results (less over-fitting). We call this aggregation operation **pooling**, or sometimes **mean pooling** or **max pooling** (depending on the pooling operation applied).
 <p align="center">
@@ -274,20 +292,47 @@ Sources: <https://colah.github.io/posts/2014-07-Conv-Nets-Modular/>
 </p>
 
 - **Convolutional neural network (CNN)**. Convolution + pooling + multi-layer neural networks.
+
+## Popular datasets for computer vision tasks
+
+- [MNIST](http://yann.lecun.com/exdb/mnist/)
+
 <p align="center">
-<!-- ![](./ufldl-cnn-layer.png){width=500px} -->
-![](./colah-conv-9-conv2max2conv2.png){width=500px}
-![](./colah-conv2-9x5-conv2max2conv2.png){width=500px}
+![](./esl-fig-11-9.png){width=500px}
 </p>
 
-<p align="center">
-![](./vgg16.png){width=600px}
+- [Fashion MNIST](https://github.com/zalandoresearch/fashion-mnist#fashion-mnist)
 
 <p align="center">
-![](./convnet-car.png){width=700px}
+![](./fashion-mnist-sprite.png){width=500px}
 </p>
 
-## Example: handwritten digit recognition 
+- [CIFAR 10](https://www.cs.toronto.edu/~kriz/cifar.html)
+
+<p align="center">
+![](./cifar10.png){width=500px}
+</p>
+
+- [ImageNet](https://www.image-net.org/)
+
+<p align="center">
+![](./colah-KSH-results.png){width=500px}
+</p>
+
+- [Microsoft COCO](https://cocodataset.org/#home) (object detection, segmentation, and captioning)
+
+<p align="center">
+![](./coco-examples.jpeg){width=500px}
+</p>
+
+- [ADE20K](http://groups.csail.mit.edu/vision/datasets/ADE20K/) (scene parsing)
+
+<p align="center">
+![](./ade20k_examples.png){width=500px}
+</p>
+
+
+## Example: MNIST and LeNet-5
 
 <p align="center">
 ![](./esl-fig-11-9.png){width=500px}
@@ -295,31 +340,7 @@ Sources: <https://colah.github.io/posts/2014-07-Conv-Nets-Modular/>
 
 - Input: 256 pixel values from $16 \times 16$ grayscale images. Output: 0, 1, ..., 9, 10 class-classification.
     
-- A modest experiment subset: 320 training digits and 160 testing digits.
-    
-- net-1: no hidden layer, equivalent to multinomial logistic regression. Number of parameters is $(16 \times 16 + 1) \times 10 = 2570$.  
-net-2: one hidden layer, 12 hidden units fully connected. Number of parameters is $(16 \times 16 + 1) \times 12 + (13 \times 10) = 3214$.  
-net-3: two hidden layers locally connected. Each unit of the _first hidden layer_ takes input from a $3 \times 3$ patch; neighboring patches overlap by by one row or column. Each unit of the second hidden layer takes input from a $5 \times 5$ patch; neighboring patches are two units apart. Number of parameters is $(3 \times 3 + 1) \times 64 + (5 \times 5 + 1) \times 16 + (16 + 1) \times 10 = 1226$.  
-net-4: two hidden layers, locally connected with weight sharing. $(3 \times 3 + 64) \times 2 +    (5 \times 5 + 1) \times 16 + (16 + 1) * 10 = 1148$ (**???**).   
-net-5: two hidden layers, locally connected, two levels of weight sharing (was the result of many person years of experimentation).   
-
-<p align="center">
-![](./esl-fig-11-10.png){width=500px}
-</p>    
-
-    Results (320 training cases, 160 test cases):   
-
-    | network | links | weights | accuracy |
-    |---------|-------|---------|----------|
-    | net 1   | 2570  | 2570    | 80.0%    |
-    | net 2   | 3124  | 3214    | 87.0%    |
-    | net 3   | 1226  | 1226    | 88.5%    |
-    | net 4   | 2266  | 1131    | 94.0%    |
-    | net 5   | 5194  | 1060    | 98.4%    |  
-
-    Net-5 and similar networks were start-of-the-art in early 1990s.
-
-- On the larger benchmark dataset **MNIST** (60,000 training images, 10,000 testing images), accuracies of following methods were reported:
+- On **MNIST** (60,000 training images, 10,000 testing images), accuracies of following methods were reported:
 
     | Method | Error rate  |
     |--------|----------|
@@ -327,21 +348,30 @@ net-5: two hidden layers, locally connected, two levels of weight sharing (was t
     | degree-9 polynomial SVM | 0.8% |
     | LeNet-5 | 0.8% |  
     | boosted LeNet-4 | 0.7% |
+    
+- [LeNet-5](http://yann.lecun.com/exdb/publis/pdf/lecun-98.pdf) (1998) represents the state of the art in 1990s. $\sim 60$ thousand parameters. 
+    
+<p align="center">
+![](./lenet-52.png){width=500px}
+</p>
 
-
-## Example: image classification
+## Example: ImageNet and AlexNet
 
 Source: <http://cs231n.github.io/convolutional-networks/>
 
-- **AlexNet**: [Krizhevsky, Sutskever, Hinton (2012)](http://www.cs.toronto.edu/~fritz/absps/imagenet.pdf)
+- [ImageNet](http://www.image-net.org) dataset. Classify 1.2 million high-resolution images ($224 \times 224 \times 3$) into 1000 classes.
 
-- [ImageNet](http://www.image-net.org) dataset. Classify 1.2 million high-resoultion images ($224 \times 224 \times 3$) into 1000 classes.
+- **AlexNet**: [Krizhevsky, Sutskever, Hinton (2012)](http://www.cs.toronto.edu/~fritz/absps/imagenet.pdf)
 
 - A combination of techniques: GPU, ReLU, DropOut (0.5), SGD + Momentum with 0.9, initial learning rate 0.01 and again reduced by 10 when validation accuracy become flat.
 
-- 5 convolutional layers, pooling interspersed, 3 fully connected layers. 60 million parameters, 650,000 neurons.
+- 5 convolutional layers, pooling interspersed, 3 fully connected layers. $\sim 60$ million parameters, 650,000 neurons.
 <p align="center">
 ![](./colah-KSH-arch.png){width=500px}
+</p>
+
+<p align="center">
+![](./alexnet.png){width=500px}
 </p>
 
 - AlexNet was the winner of the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) classification the benchmark in 2012.
@@ -355,11 +385,15 @@ Source: <http://cs231n.github.io/convolutional-networks/>
 ![](./krizhevsky-weights.jpg){width=500px}
 </p>
 
-### Other popular architectures
+## Other popular architectures for image classification
+
+<p align="center">
+![](./imagenet_top_performers.png){width=500px}
+</p>
 
 Source: [Architecture comparison of AlexNet, VGGNet, ResNet, Inception, DenseNet](https://towardsdatascience.com/architecture-comparison-of-alexnet-vggnet-resnet-inception-densenet-beb8b116866d)
 
-- **VGGNet** was the runner up of the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) classification the benchmark in 2014.
+- [**VGG-16**](https://arxiv.org/abs/1409.1556) and VGG-19 (2014). The numbers 16 and 19 refer to the number of trainable layers. VGG-16 has $\sim 138$ million parameters. **VGGNet** was the runner up of the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) classification the benchmark in 2014.
 
 <p align="center">
 ![](./vgg16.png){width=400px}
@@ -373,22 +407,20 @@ Source: [Architecture comparison of AlexNet, VGGNet, ResNet, Inception, DenseNet
 ![](./vgg16params.jpg){width=400px}
 </p>
 
-- **ResNet** secured 1st Position in ILSVRC and COCO 2015 competition with an error rate of 3.6% (Better than Human Performance !!!) Batch Normalization after every conv layer. It also uses Xavier initialization with SGD + Momentum. The learning rate is 0.1 and is divided by 10 as validation error becomes constant. Moreover, batch-size is 256 and weight decay is 1e-5. The important part is there is no dropout is used in ResNet.
+- [**ResNet**](https://arxiv.org/abs/1512.03385) secured 1st Position in ILSVRC and COCO 2015 competition with an error rate of 3.6% (Better than Human Performance !!!) Batch Normalization after every conv layer. It also uses Xavier initialization with SGD + Momentum. The learning rate is 0.1 and is divided by 10 as validation error becomes constant. Moreover, batch-size is 256 and weight decay is 1e-5. The important part is there is no dropout is used in ResNet.
 
 <p align="center">
 ![](./resnet.jpg){width=400px}
 </p>
 
-- **Inception**. Inception-v3 with 144 crops and 4 models ensembled, the top-5 error rate of 3.58% is obtained, and finally obtained 1st Runner Up (image classification) in ILSVRC 2015.
+- **Inception**. Inception-v3 with 144 crops and 4 models ensembled, the top-5 error rate of 3.58% is obtained, and finally obtained 1st Runner Up (image classification) in ILSVRC 2015. The motivation of the inception network is, rather than requiring us to pick the filter size manually, let the network decide what is best to put in a layer. [GoogLeNet](https://arxiv.org/abs/1409.4842) has 9 inception modules.
 
 <p align="center">
 ![](./inception.png){width=600px}
 </p>
 
-- **DenseNet**.
-
 <p align="center">
-![](./densenet.png){width=500px}
+![](./inception-module1.png){width=500px}
 </p>
 
 ## Recurrent neural networks (RNN)
@@ -466,6 +498,10 @@ Source: [Architecture comparison of AlexNet, VGGNet, ResNet, Inception, DenseNet
     
 ## Generative Adversarial Networks (GANs)
 
+<p align="center">
+![](./ian_goodfellow.png){width=400px}
+</p>
+
 > The coolest idea in deep learning in the last 20 years.  
 > - Yann LeCun on GANs.
 
@@ -476,13 +512,15 @@ Source: [Architecture comparison of AlexNet, VGGNet, ResNet, Inception, DenseNet
 
 - Applications:
 
-    - Image-to-image translation 
+    * AI-generated celebrity photos: <https://www.youtube.com/watch?v=G06dEcZ-QTg>
+    
+    * Digital art: [Edmond de Belamy](https://en.wikipedia.org/wiki/Edmond_de_Belamy)
+    
+    * Image-to-image translation 
     
     <p align="center">
     ![](./image-to-image-translation.jpg){width=600px}
     </p>
-
-    * AI-generated celebrity photos: <https://www.youtube.com/watch?v=G06dEcZ-QTg>
     
     * Self play
 
@@ -496,6 +534,9 @@ Source: [Architecture comparison of AlexNet, VGGNet, ResNet, Inception, DenseNet
 ![](./gan.jpg){width=600px}
 </p>
 
+<p align="center">
+![](./gan_illustration.png){width=600px}
+</p>
 
 * Value function of GAN
 $$
