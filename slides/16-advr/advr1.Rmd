@@ -133,20 +133,6 @@ Sources:
 
 - <https://support.rstudio.com/hc/en-us/articles/218221837-Profiling-with-RStudio>
 
-### First example
-
-```{r}
-library(profvis)
-
-profvis({
-  data(diamonds, package = "ggplot2")
-
-  plot(price ~ carat, data = diamonds)
-  m <- lm(price ~ carat, data = diamonds)
-  abline(m, col = "red")
-})
-```
-
 ### Example: profiling time
 
 First generate test data:
@@ -159,6 +145,7 @@ head(data)
 ```
 Original code for centering columns of a dataframe:
 ```{r}
+library(profvis)
 profvis({
   # Store in another variable for this run
   data1 <- data
@@ -205,7 +192,7 @@ profvis({
  
  # Given a column, normalize values and return them
  col_norm <- function(col) {
-   col - mean(col)
+   return(col - mean(col))
  }
  
  # Apply the normalizer function over all columns except id
@@ -238,7 +225,7 @@ profvis({
     for (i in seq(2, length(x))) {
       sum[i] <- sum[i-1] + x[i]
     }
-    sum
+    return(sum)
   }
   data$sum <- csum(data$value)
 })

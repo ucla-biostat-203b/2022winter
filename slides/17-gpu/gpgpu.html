@@ -211,7 +211,7 @@ pre code {
 <h2>General-purpose computing on GPU (GPGPU)</h2>
 <p>GPGPU is the use of a graphics processing unit (GPU), which typically handles computation only for computer graphics, to perform computation in applications traditionally handled by the CPU.</p>
 <p>GPGPU is fundamentally a software concept, not a hardware concept; it is a type of algorithm, not a piece of equipment.</p>
-<p>GPUs are often conveniently available on standard laptoops and desktop computers and can be externally connected to a personal computer.</p>
+<p>GPUs are often conveniently available on standard laptops and desktop computers and can be externally connected to a personal computer.</p>
 <div id="gpu-architecture-and-memory-hierarchy" class="section level3">
 <h3>GPU architecture and memory hierarchy</h3>
 <center>
@@ -321,7 +321,7 @@ cppFunction('NumericVector add_c(NumericVector x1, NumericVector x2) {
 }')
 add_c</code></pre>
 <pre><code>## function (x1, x2) 
-## .Call(&lt;pointer: 0x10ede43e0&gt;, x1, x2)</code></pre>
+## .Call(&lt;pointer: 0x10e9dc3e0&gt;, x1, x2)</code></pre>
 <pre class="r"><code>library(OpenCL)
 platform &lt;- oclPlatforms()[[1]] # retrieve available OpenCL platforms
 device &lt;- oclDevices(platform)[[2]] # get OpenCL devices for the given platform
@@ -331,13 +331,12 @@ platform</code></pre>
 <pre class="r"><code>device</code></pre>
 <pre><code>## OpenCL device 'Intel(R) Iris(TM) Plus Graphics 655'</code></pre>
 <pre class="r"><code>ctx</code></pre>
-<pre><code>## OpenCL context &lt;pointer: 0x7f9e5200fe90&gt;
+<pre><code>## OpenCL context &lt;pointer: 0x7fa888985990&gt;
 ##   Device: OpenCL device 'Intel(R) Iris(TM) Plus Graphics 655'
-##   Queue: OpenCL command queue &lt;pointer: 0x7f9e4dc5af20&gt;
+##   Queue: OpenCL command queue &lt;pointer: 0x7fa888c07700&gt;
 ##   Default precision: single</code></pre>
 <pre class="r"><code># define kernel
 code &lt;- c(&quot;
-   #pragma OPENCL EXTENSION cl_khr_fp64 : enable
    __kernel void kernel_add(
      __global float* output,
      const int n,
@@ -345,7 +344,10 @@ code &lt;- c(&quot;
      __global const float* input2
    )
    {
+      // get global thread ID  
       int i = get_global_id(0);
+
+      // make sure we do not go out of bounds
       if (i&lt;n) output[i] = input1[i] + input2[i];
    };
 &quot;)
@@ -373,13 +375,13 @@ add_gpu &lt;- function(d_x1, d_x2) {
 microbenchmark(add_r(x1, x2), add_rc(x1, x2), add_c(x1, x2), x1+x2,
                add_gpu(d_x1, d_x2), add_gpu_copy(d_x1, x1))</code></pre>
 <pre><code>## Unit: microseconds
-##                    expr        min          lq       mean     median          uq        max neval
-##           add_r(x1, x2) 318922.783 341948.4720 355878.000 348921.109 374648.4580 405050.589   100
-##          add_rc(x1, x2) 317495.353 340232.9925 350954.266 345185.618 355879.9950 396769.752   100
-##           add_c(x1, x2)   1751.283   4399.6650   4708.658   4694.561   4938.1345  13166.342   100
-##                 x1 + x2    907.020   3929.8195   4890.991   4147.909   4777.7940  46793.047   100
-##     add_gpu(d_x1, d_x2)     17.600     83.2475    129.115     88.952     94.1865   2516.171   100
-##  add_gpu_copy(d_x1, x1)   2199.496   2862.4080   3716.546   3464.140   4300.8440   6493.195   100</code></pre>
+##                    expr        min         lq        mean     median         uq        max neval
+##           add_r(x1, x2) 315340.698 343554.799 359869.3104 355100.323 374991.153 429677.535   100
+##          add_rc(x1, x2) 309535.831 337451.082 360399.0098 350809.897 375612.387 625605.359   100
+##           add_c(x1, x2)   1691.123   4421.886   5152.3010   4743.660   5466.921  16470.391   100
+##                 x1 + x2    895.039   3917.689   5062.5255   4248.267   4855.718  46109.511   100
+##     add_gpu(d_x1, d_x2)     18.059     85.134    136.0265     93.383    100.515   2608.604   100
+##  add_gpu_copy(d_x1, x1)   2494.368   2881.586   3735.6460   3388.573   4089.163  10717.142   100</code></pre>
 </div>
 <div id="tree-based-parallel-algorithms" class="section level4">
 <h4>Tree-based parallel algorithms</h4>
@@ -387,7 +389,7 @@ microbenchmark(add_r(x1, x2), add_rc(x1, x2), add_c(x1, x2), x1+x2,
 <h5>Reduction</h5>
 <p>Reductions convert an array of elements into a single result:</p>
 <p><span class="math display">\[[a_0, a_1, ..., a_{n-1}] \rightarrow\sum_{i=0}^{n-1} a_i.\]</span></p>
-<p>Reductions are useful for implementing log-likelihood calculations, since independent samples contribute additively to the model log-likelihood.</p>
+<p>Reductions are useful for implementing log-likelihood calculations, since independent samples contribute additively to the model log-likelihood: <span class="math display">\[ l(\beta) = \sum_i l_i(\beta).\]</span></p>
 </div>
 <div id="scan" class="section level5">
 <h5>Scan</h5>
@@ -400,7 +402,11 @@ microbenchmark(add_r(x1, x2), add_rc(x1, x2), add_c(x1, x2), x1+x2,
 <div id="use-cudaopencl-libraries" class="section level5">
 <h5>Use CUDA/Opencl libraries</h5>
 <ul>
-<li>CUB library: <a href="https://nvlabs.github.io/cub/index.html" class="uri">https://nvlabs.github.io/cub/index.html</a></li>
+<li>CUB library for efficient scan and reduction: <a href="https://nvlabs.github.io/cub/index.html" class="uri">https://nvlabs.github.io/cub/index.html</a>
+<ul>
+<li>Single-pass Parallel Prefix Scan with Decoupled Look-back <a href="https://research.nvidia.com/sites/default/files/pubs/2016-03_Single-pass-Parallel-Prefix/nvr-2016-002.pdf" class="uri">https://research.nvidia.com/sites/default/files/pubs/2016-03_Single-pass-Parallel-Prefix/nvr-2016-002.pdf</a></li>
+</ul></li>
+<li>Boost.Compute (C++ wrapper over the OpenCL API): <a href="https://github.com/boostorg/compute" class="uri">https://github.com/boostorg/compute</a></li>
 </ul>
 </div>
 </div>
@@ -411,7 +417,11 @@ microbenchmark(add_r(x1, x2), add_rc(x1, x2), add_c(x1, x2), x1+x2,
 <ul>
 <li><p>Parallelization using GPUs generally perform better on very large sample size. When work on problems with small sample size, the communication latency costs often overpower the gains from the parallelized work.</p></li>
 <li><p>When optimize an existing program, start with off-loading the most computationally intensive routines to the GPU before rewriting the whole codebase.</p></li>
-<li><p>Apply GPU-accelerated libraries to gain instant speed-up. We often don't need to write complicated algorithms by ourselves.</p></li>
+<li><p>Apply <strong>GPU-accelerated libraries</strong> to gain instant speed-up. We often don't need to write complicated algorithms by ourselves.</p>
+<ul>
+<li><p>CUDA GPU-Accelerated libraries: <a href="https://developer.nvidia.com/gpu-accelerated-libraries" class="uri">https://developer.nvidia.com/gpu-accelerated-libraries</a></p></li>
+<li><p>A curated list of awesome OpenCL resources: <a href="https://github.com/jslee02/awesome-opencl" class="uri">https://github.com/jslee02/awesome-opencl</a></p></li>
+</ul></li>
 </ul>
 </div>
 <div id="learning-resources" class="section level2">
@@ -420,7 +430,6 @@ microbenchmark(add_r(x1, x2), add_rc(x1, x2), add_c(x1, x2), x1+x2,
 <li><p>Introduction to Parallel Computing Tutorial: <a href="https://hpc.llnl.gov/documentation/tutorials/introduction-parallel-computing-tutorial" class="uri">https://hpc.llnl.gov/documentation/tutorials/introduction-parallel-computing-tutorial</a></p></li>
 <li><p>Accelerate R Applications with CUDA: <a href="https://developer.nvidia.com/blog/accelerate-r-applications-cuda/" class="uri">https://developer.nvidia.com/blog/accelerate-r-applications-cuda/</a></p></li>
 <li><p>CUDA C++ Programming Guide: <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html" class="uri">https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html</a></p></li>
-<li><p>CUDA GPU-Accelerated libraries: <a href="https://developer.nvidia.com/gpu-accelerated-libraries" class="uri">https://developer.nvidia.com/gpu-accelerated-libraries</a></p></li>
 </ul>
 </div>
 

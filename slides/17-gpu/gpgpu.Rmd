@@ -24,7 +24,7 @@ GPGPU is the use of a graphics processing unit (GPU), which typically handles co
 
 GPGPU is fundamentally a software concept, not a hardware concept; it is a type of algorithm, not a piece of equipment.
 
-GPUs are often conveniently available on standard laptoops and desktop computers and can be externally connected to a personal computer.
+GPUs are often conveniently available on standard laptops and desktop computers and can be externally connected to a personal computer.
 
 
 ### GPU architecture and memory hierarchy
@@ -135,7 +135,6 @@ ctx
 ```{r}
 # define kernel
 code <- c("
-   #pragma OPENCL EXTENSION cl_khr_fp64 : enable
    __kernel void kernel_add(
      __global float* output,
      const int n,
@@ -143,7 +142,10 @@ code <- c("
      __global const float* input2
    )
    {
+      // get global thread ID  
       int i = get_global_id(0);
+
+      // make sure we do not go out of bounds
       if (i<n) output[i] = input1[i] + input2[i];
    };
 ")
@@ -184,7 +186,8 @@ Reductions convert an array of elements into a single result:
 
 $$[a_0, a_1, ..., a_{n-1}] \rightarrow\sum_{i=0}^{n-1} a_i.$$
 
-Reductions are useful for implementing log-likelihood calculations, since independent samples contribute additively to the model log-likelihood.
+Reductions are useful for implementing log-likelihood calculations, since independent samples contribute additively to the model log-likelihood:
+$$ l(\beta) = \sum_i l_i(\beta).$$
 
 ##### Scan
 
@@ -196,7 +199,10 @@ $$[a_0, a_1, ..., a_{n-1}] \rightarrow [a_0, a_0 + a_1, ..., \sum_{i=0}^{n-1} a_
 
 ##### Use CUDA/Opencl libraries
 
-- CUB library: <https://nvlabs.github.io/cub/index.html>
+- CUB library for efficient scan and reduction: <https://nvlabs.github.io/cub/index.html>
+      - Single-pass Parallel Prefix Scan with Decoupled Look-back <https://research.nvidia.com/sites/default/files/pubs/2016-03_Single-pass-Parallel-Prefix/nvr-2016-002.pdf>
+
+- Boost.Compute (C++ wrapper over the OpenCL API): <https://github.com/boostorg/compute>
 
 
 ## Tips of using GPGPU in statistical computing
@@ -205,8 +211,11 @@ $$[a_0, a_1, ..., a_{n-1}] \rightarrow [a_0, a_0 + a_1, ..., \sum_{i=0}^{n-1} a_
 
 - When optimize an existing program, start with off-loading the most computationally intensive routines to the GPU before rewriting the whole codebase.
 
-- Apply GPU-accelerated libraries to gain instant speed-up. We often don't need to write complicated algorithms by ourselves.
-
+- Apply **GPU-accelerated libraries** to gain instant speed-up. We often don't need to write complicated algorithms by ourselves.
+    
+    - CUDA GPU-Accelerated libraries: <https://developer.nvidia.com/gpu-accelerated-libraries>
+    
+    - A curated list of awesome OpenCL resources: <https://github.com/jslee02/awesome-opencl>
 
 
 ## Learning resources
@@ -216,5 +225,3 @@ $$[a_0, a_1, ..., a_{n-1}] \rightarrow [a_0, a_0 + a_1, ..., \sum_{i=0}^{n-1} a_
 - Accelerate R Applications with CUDA: <https://developer.nvidia.com/blog/accelerate-r-applications-cuda/>
 
 - CUDA C++ Programming Guide: <https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html>
-
-- CUDA GPU-Accelerated libraries: <https://developer.nvidia.com/gpu-accelerated-libraries>
