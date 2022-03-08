@@ -204,6 +204,10 @@ $$[a_0, a_1, ..., a_{n-1}] \rightarrow [a_0, a_0 + a_1, ..., \sum_{i=0}^{n-1} a_
 
 - Boost.Compute (C++ wrapper over the OpenCL API): <https://github.com/boostorg/compute>
 
+```{bash}
+cat OpenclReduce.cpp
+```
+
 
 ## Tips of using GPGPU in statistical computing
 

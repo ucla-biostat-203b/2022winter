@@ -341,7 +341,7 @@ Main components of an R package:
 
 - A `NAMESPACE` file listing user-level functions in the package (create this automatically by `roxygen2`)
 
-- Optional but **highly recommended**: a `tests` directory (check out `testthat` package)
+- Optional but **highly recommended**: a `tests` directory (create by `usethis::use_testthat()` and test by `devtools::test()`)
 
 - Optional: a `src` directory with compiled code (C++)
 

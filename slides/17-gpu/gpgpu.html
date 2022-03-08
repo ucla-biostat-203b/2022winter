@@ -321,7 +321,7 @@ cppFunction('NumericVector add_c(NumericVector x1, NumericVector x2) {
 }')
 add_c</code></pre>
 <pre><code>## function (x1, x2) 
-## .Call(&lt;pointer: 0x10e9dc3e0&gt;, x1, x2)</code></pre>
+## .Call(&lt;pointer: 0x10d0a13e0&gt;, x1, x2)</code></pre>
 <pre class="r"><code>library(OpenCL)
 platform &lt;- oclPlatforms()[[1]] # retrieve available OpenCL platforms
 device &lt;- oclDevices(platform)[[2]] # get OpenCL devices for the given platform
@@ -331,9 +331,9 @@ platform</code></pre>
 <pre class="r"><code>device</code></pre>
 <pre><code>## OpenCL device 'Intel(R) Iris(TM) Plus Graphics 655'</code></pre>
 <pre class="r"><code>ctx</code></pre>
-<pre><code>## OpenCL context &lt;pointer: 0x7fa888985990&gt;
+<pre><code>## OpenCL context &lt;pointer: 0x7fc9b3c61980&gt;
 ##   Device: OpenCL device 'Intel(R) Iris(TM) Plus Graphics 655'
-##   Queue: OpenCL command queue &lt;pointer: 0x7fa888c07700&gt;
+##   Queue: OpenCL command queue &lt;pointer: 0x7fc9b3ca1690&gt;
 ##   Default precision: single</code></pre>
 <pre class="r"><code># define kernel
 code &lt;- c(&quot;
@@ -375,13 +375,13 @@ add_gpu &lt;- function(d_x1, d_x2) {
 microbenchmark(add_r(x1, x2), add_rc(x1, x2), add_c(x1, x2), x1+x2,
                add_gpu(d_x1, d_x2), add_gpu_copy(d_x1, x1))</code></pre>
 <pre><code>## Unit: microseconds
-##                    expr        min         lq        mean     median         uq        max neval
-##           add_r(x1, x2) 315340.698 343554.799 359869.3104 355100.323 374991.153 429677.535   100
-##          add_rc(x1, x2) 309535.831 337451.082 360399.0098 350809.897 375612.387 625605.359   100
-##           add_c(x1, x2)   1691.123   4421.886   5152.3010   4743.660   5466.921  16470.391   100
-##                 x1 + x2    895.039   3917.689   5062.5255   4248.267   4855.718  46109.511   100
-##     add_gpu(d_x1, d_x2)     18.059     85.134    136.0265     93.383    100.515   2608.604   100
-##  add_gpu_copy(d_x1, x1)   2494.368   2881.586   3735.6460   3388.573   4089.163  10717.142   100</code></pre>
+##                    expr        min          lq        mean     median         uq        max neval
+##           add_r(x1, x2) 308052.861 326307.1795 341374.9604 338174.843 353688.306 405145.508   100
+##          add_rc(x1, x2) 313752.376 327797.1000 344318.2126 340572.758 356251.533 404405.891   100
+##           add_c(x1, x2)   1637.994   4282.6765   6154.1836   4527.628   5484.640  48969.388   100
+##                 x1 + x2   1200.933   3794.7740   5273.5301   4084.570   4810.689  52635.951   100
+##     add_gpu(d_x1, d_x2)     16.730     80.3135    123.5025     91.602    104.036   2998.559   100
+##  add_gpu_copy(d_x1, x1)   2469.355   2870.3145   3646.5643   3192.154   4069.506   7848.140   100</code></pre>
 </div>
 <div id="tree-based-parallel-algorithms" class="section level4">
 <h4>Tree-based parallel algorithms</h4>
@@ -408,6 +408,36 @@ microbenchmark(add_r(x1, x2), add_rc(x1, x2), add_c(x1, x2), x1+x2,
 </ul></li>
 <li>Boost.Compute (C++ wrapper over the OpenCL API): <a href="https://github.com/boostorg/compute" class="uri">https://github.com/boostorg/compute</a></li>
 </ul>
+<pre class="bash"><code>cat OpenclReduce.cpp</code></pre>
+<pre><code>## #include &lt;Rcpp.h&gt;
+## #include &lt;boost/compute.hpp&gt;
+## 
+## using namespace Rcpp;
+## 
+## namespace compute = boost::compute;
+## 
+## // [[Rcpp::export]]
+## float OpenclReduce(std::vector&lt;float&gt;&amp; h_x) {
+##     
+##     // get the default compute device
+##     compute::device device = compute::system::default_device();
+##     
+##     // create a compute context and command queue
+##     compute::context context(device);
+##     compute::command_queue queue(context, device);
+##     
+##     // allocate memory on the device
+##     compute::vector&lt;float&gt; d_x(h_x.size(), context);
+##     
+##     // copy data from the host to the device
+##     compute::copy(h_x.begin(), h_x.end(), d_x.begin(), queue);
+##     
+##     // calculate the sum and save the result back to the host
+##     float total;
+##     compute::reduce(d_x.begin(), d_x.end(), &amp;total, queue);
+##     
+##     return total;
+## }</code></pre>
 </div>
 </div>
 </div>
